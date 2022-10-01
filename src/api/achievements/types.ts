@@ -118,9 +118,12 @@ type DailySubObject = {
 }
 
 // /v2/achievements/groups
-// getGroupsAllIds(string[])
+// getGroupsAllIds()
 export type getGroupsAllIds = number[]
 
+
+// /v2/achievements/groups
+// getGroupdByIds(string[])
 export type getGroupsByIds = {
     id: string
     name: string

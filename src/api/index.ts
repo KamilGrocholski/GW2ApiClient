@@ -1,3 +1,6 @@
 export * from './baseAPI'
 export * from './account'
 export * from './achievements'
+export * from './backstory'
+export * from './build'
+export * from './characters'
