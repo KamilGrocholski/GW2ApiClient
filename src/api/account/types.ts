@@ -1,4 +1,25 @@
-import { ItemStats } from "."
+export interface ItemStats {
+    id: number
+    name: string
+    attributes: {
+        attribute:  
+            'AgonyResistance'
+            | 'BoonDuration' 
+            | 'ConditionDamage' 
+            | 'ConditionDuration' 
+            | 'CritDamage' 
+            | 'Healing' 
+            | 'Power' 
+            | 'Precision' 
+            | 'Toughness' 
+            | 'Vitality' 
+        multiplier: number
+        value: number
+    }[]
+}
+
+
+
 
 export interface Account {
     id: string
@@ -78,7 +99,7 @@ export type Home_Nodes = string[] | null
 
 export type LegendaryArmory = {
     id: number
-    count: int
+    count: number
 }[] | null
 
 export type Luck = {
@@ -148,9 +169,7 @@ export type Inventory = {
     binding?: string 
     stats: {
         id: number
-        attributes: {
-            [key: ItemStats['attributes'][number]['attribute']]: number
-        }
+        attributes: Record<ItemStats['attributes'][number]['attribute'], number>
     }
 }[]
 
