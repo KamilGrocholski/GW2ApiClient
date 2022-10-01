@@ -10,7 +10,7 @@ const client = new GW2ApiClient({ token: process.env.GW2_TOKEN as string })
 
 const App = async () => {
     try {
-        const request = await client.continents.getContinentsAllIds()
+        const request = await client.guilds.getGuildIdsByName('Aphyria')
 
         console.log(request)
         // console.log(client)

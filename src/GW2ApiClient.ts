@@ -4,11 +4,21 @@ import {
     AchievementsClient,
     BackstoryClient,
     BuildClient,
-    CharactersClient
+    CharactersClient,
+    ColorsClient,
+    CommerceClient,
+    ContinentsClient,
+    SubTokenClient,
+    CurrenciesClient,
+    DailyCraftingClient,
+    DungeonsClient,
+    EmblemClient,
+    EmotesClient,
+    FilesClient,
+    FinishersClient,
+    GlidersClient,
+    GuildsClient
 } from "./api/"
-import { ColorsClient } from "./api/colors"
-import { CommerceClient } from "./api/commerce"
-import { ContinentsClient } from "./api/continents"
 
 export class GW2ApiClient {
     readonly account: AccountClient
@@ -19,6 +29,16 @@ export class GW2ApiClient {
     readonly colors: ColorsClient
     readonly commerce: CommerceClient
     readonly continents: ContinentsClient
+    readonly subToken: SubTokenClient
+    readonly currencies: CurrenciesClient
+    readonly dailyCrafting: DailyCraftingClient
+    readonly dungeons: DungeonsClient
+    readonly emblem: EmblemClient
+    readonly emotes: EmotesClient
+    readonly files: FilesClient
+    readonly finishers: FinishersClient
+    readonly gliders: GlidersClient
+    readonly guilds: GuildsClient
 
     constructor(clientOptions?: ClientOptions) {
         this.account = new AccountClient(clientOptions)
@@ -29,6 +49,16 @@ export class GW2ApiClient {
         this.colors = new ColorsClient(clientOptions)
         this.commerce = new CommerceClient(clientOptions)
         this.continents = new ContinentsClient(clientOptions)
+        this.subToken = new SubTokenClient(clientOptions)
+        this.currencies = new CurrenciesClient(clientOptions)
+        this.dailyCrafting = new DailyCraftingClient(clientOptions)
+        this.dungeons = new DungeonsClient(clientOptions)
+        this.emblem = new EmblemClient(clientOptions)
+        this.emotes = new EmotesClient(clientOptions)
+        this.files = new FilesClient(clientOptions)
+        this.finishers = new FinishersClient(clientOptions)
+        this.gliders = new GlidersClient(clientOptions)
+        this.guilds = new GuildsClient(clientOptions)
     }
 }
 

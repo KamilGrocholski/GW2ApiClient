@@ -82,3 +82,41 @@ export enum Bindings {
     'Account',
     'Character'
 }
+
+
+export type WinLossObject = {
+    wins: number
+    losses: number
+    desertions: number
+    byes: number
+    forfeits: number
+}
+
+export type PvPStats = {
+    pvp_rank: number
+    pvp_rank_points: number
+    pvp_rank_rollovers: number
+    aggregate: WinLossObject
+    professions: WinLossObject
+    ladders: {
+        ranked: WinLossObject
+        unranked: WinLossObject
+    }
+} 
+
+export type PvPGames = {
+    id: string
+    map_id: number
+    started: string
+    ended: string
+    result: string
+    team: string
+    profession: string
+    scores: {
+        red: number
+        blue: number
+    } 
+    rating_type: 'Ranked' | 'Unranked' | 'None'
+    rating_change: number
+    season?: string 
+} 

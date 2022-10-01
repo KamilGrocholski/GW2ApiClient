@@ -45,19 +45,19 @@ export class ContinentsClient extends BaseApi {
         return (await this.api.get<ContinentTypes.MapsIds>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/maps`)).data
     }
      
-    public async getMapById({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.MapsIds> { 
-        return (await this.api.get<ContinentTypes.MapsIds>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }`)).data
+    public async getMapById({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.Map> { 
+        return (await this.api.get<ContinentTypes.Map>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }`)).data
     }
 
-    public async getSectors({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.MapsIds> { 
-        return (await this.api.get<ContinentTypes.MapsIds>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }/sectors`)).data
+    public async getSectors({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.Sectors> { 
+        return (await this.api.get<ContinentTypes.Sectors>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }/sectors`)).data
     }
 
-    public async getPois({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.MapsIds> { 
-        return (await this.api.get<ContinentTypes.MapsIds>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }/pois`)).data
+    public async getPois({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.PointsOfInterest> { 
+        return (await this.api.get<ContinentTypes.PointsOfInterest>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }/pois`)).data
     }
 
-    public async getTasks({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.MapsIds> { 
-        return (await this.api.get<ContinentTypes.MapsIds>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }/tasks`)).data
+    public async getTasks({ continentId, floorId, regionId, mapId }: ParamsEnd): Promise<ContinentTypes.Tasks> { 
+        return (await this.api.get<ContinentTypes.Tasks>(`/v2/continents/${ continentId }/floors/${ floorId }/regions/${ regionId }/${ mapId }/tasks`)).data
     }
 }
