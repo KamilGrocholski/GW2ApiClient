@@ -10,11 +10,9 @@ const client = new GW2ApiClient({ token: process.env.GW2_TOKEN as string })
 
 const App = async () => {
     try {
-        const request = await client.characters.getCharacterByNameFullInfo('Mikosiosio')
+        const request = await client.continents.getContinentsAllIds()
 
-        if (request) {
-
-        }
+        console.log(request)
         // console.log(client)
     } catch (err: any) {
         console.log(err.response.data)

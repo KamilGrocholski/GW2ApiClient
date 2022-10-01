@@ -20,21 +20,21 @@ export class BaseApi {
         })
 
         //TODO dodać obsługę interceptorów
-        // this.api.interceptors.request.use(
-        //     (config: AxiosRequestConfig) => {
-        //         console.log(`GW2 api schema version: ${ schemaVersion }`)
-        //         return config
-        //     },
-        //     (error: AxiosError) => {
-        //         console.log(`GW2 api schema version: ${ schemaVersion }`)
-        //         console.log(error.status)
-        //         return Promise.reject(error)
-        //     }
-        // )
+        this.api.interceptors.request.use(
+            (config: AxiosRequestConfig) => {
+                console.log(`GW2 api schema version: ${ schemaVersion }`)
+                return config
+            },
+            (error: AxiosError) => {
+                console.log(`GW2 api schema version: ${ schemaVersion }`)
+                console.log(error.status)
+                return Promise.reject(error)
+            }
+        )
 
-        // this.api.interceptors.response.use(
-        //     (response: AxiosResponse) => handleResponse(response),
-        //     (error: AxiosError<string>) => handleResponseError(error) 
-        // )
+        this.api.interceptors.response.use(
+            (response: AxiosResponse) => handleResponse(response),
+            (error: AxiosError<string>) => handleResponseError(error) 
+        )
     }
 }
