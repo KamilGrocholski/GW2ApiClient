@@ -1,22 +1,4 @@
-import { GW2ApiClient } from './GW2ApiClient'
+export { GW2ApiClient } from './GW2ApiClient'
+export type { GW2ApiClientType } from './GW2ApiClient'
+export *  from './@typesGW2'
 
-export * from './GW2ApiClient'
-
-import dotenv from 'dotenv'
-dotenv.config()
-
-const client = new GW2ApiClient({ token: process.env.GW2_TOKEN as string })
-// const client = new GW2ApiClient({ token: 'xd' })
-
-const App = async () => {
-    try {
-        const request = await client.guilds.getGuildIdsByName('Aphyria')
-
-        console.log(request)
-        // console.log(client)
-    } catch (err: any) {
-        console.log(err.response.data)
-    }
-}
-
-App()

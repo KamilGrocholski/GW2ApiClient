@@ -3,9 +3,15 @@ import { handleResponse, handleResponseError } from "./actionHandlers"
 
 const baseURL = 'https://api.guildwars2.com'
 const schemaVersion = '2022-03-23T19:00:00.000Z'
+
+
+
 export interface ClientOptions {
-    token?: string,
+    apiKey?: string,
+    acceptedStatusCodes?: 'EVERY' | 'ONLY_200' 
 }
+
+
 export class BaseApi {
     protected readonly api: AxiosInstance
 
@@ -15,7 +21,7 @@ export class BaseApi {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Schema-Version': schemaVersion,
-                'Authorization': `Bearer ${clientOptions?.token}`
+                'Authorization': `Bearer ${clientOptions?.apiKey}`
             }
         })
 
@@ -33,7 +39,7 @@ export class BaseApi {
         )
 
         this.api.interceptors.response.use(
-            (response: AxiosResponse) => handleResponse(response),
+            (response: AxiosResponse) => handleResponse(response, clientOptions?.acceptedStatusCodes),
             (error: AxiosError<string>) => handleResponseError(error) 
         )
     }

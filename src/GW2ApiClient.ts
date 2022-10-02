@@ -1,3 +1,4 @@
+// Clients
 import { 
     ClientOptions, 
     AccountClient, 
@@ -17,7 +18,9 @@ import {
     FilesClient,
     FinishersClient,
     GlidersClient,
-    GuildsClient
+    GuildsClient,
+    HomeClient,
+    ItemsClient
 } from "./api/"
 
 export class GW2ApiClient {
@@ -39,6 +42,8 @@ export class GW2ApiClient {
     readonly finishers: FinishersClient
     readonly gliders: GlidersClient
     readonly guilds: GuildsClient
+    readonly home: HomeClient
+    readonly items: ItemsClient
 
     constructor(clientOptions?: ClientOptions) {
         this.account = new AccountClient(clientOptions)
@@ -59,6 +64,8 @@ export class GW2ApiClient {
         this.finishers = new FinishersClient(clientOptions)
         this.gliders = new GlidersClient(clientOptions)
         this.guilds = new GuildsClient(clientOptions)
+        this.home = new HomeClient(clientOptions)
+        this.items = new ItemsClient(clientOptions)
     }
 }
 

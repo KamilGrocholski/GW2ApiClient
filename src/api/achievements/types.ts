@@ -1,10 +1,10 @@
 // /v2/achievements
 // getAllIds()
-export type getAllIds = number[]
+export type AchievementsIds = number[]
 
 // /v2/achievements
 // getByIds(number[])
-export type getByIds = {
+export type Acheviement = {
     id: number
     icon?: string
     name: string
@@ -38,7 +38,9 @@ export type getByIds = {
         text?: string
     } 
     point_cap?: number 
-}[] | null
+}
+
+export type Achievements = Achievements[]
 
 type Coins = {
     type: 'Coins'
@@ -61,11 +63,11 @@ type Title = {
 
 // /v2/achievements/categories
 // getCategoriesAllIds()
-export type getCategoriesAllIds = number[]
+export type CategoriesIds = number[]
 
 // /v2/achievements/categories
 // getCategoriesByIds(number[])
-export type getCategoriesByIds = {
+export type Category = {
     id: number
     name: string
     description: string
@@ -89,11 +91,13 @@ export type getCategoriesByIds = {
         flags?: ('PvE' | 'PvP' | 'WvW' | 'SpecialEvent')[]
         level?: [number, number]  
     }[]
-}[]
+}
+
+export type Categories = Category[]
 
 // /v2/achievements/daily
 // getDaily()
-export type getDaily = {
+export type Daily = {
     pve: DailySubObject[]
     pvp: DailySubObject[]
     wvw: DailySubObject[]
@@ -101,9 +105,6 @@ export type getDaily = {
     special: DailySubObject[] 
 }
 
-// /v2/achievements/daily/tomorrow
-// getDailyTomorrow
-export type getDailyTomorrow = getDaily
 
 type DailySubObject = {
     id: number
@@ -119,15 +120,17 @@ type DailySubObject = {
 
 // /v2/achievements/groups
 // getGroupsAllIds()
-export type getGroupsAllIds = number[]
+export type GroupsIds = number[]
 
 
 // /v2/achievements/groups
 // getGroupdByIds(string[])
-export type getGroupsByIds = {
+export type Group = {
     id: string
     name: string
     description: string
     order: number
     categories: number[]
-}[]
+}
+
+export type Groups = Group[]

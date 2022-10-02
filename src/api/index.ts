@@ -1,4 +1,7 @@
 export * from './baseAPI'
+
+export * from './common' // GW2CommonTypes
+
 export * from './account'
 export * from './achievements'
 export * from './backstory'
@@ -17,3 +20,5 @@ export * from './files'
 export * from './finishers'
 export * from './gliders'
 export * from './guilds'
+export * from './home'
+export * from './items'
