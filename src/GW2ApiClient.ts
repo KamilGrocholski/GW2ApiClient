@@ -20,7 +20,18 @@ import {
     GlidersClient,
     GuildsClient,
     HomeClient,
-    ItemsClient
+    ItemsClient,
+    ItemStatsClient,
+    LegendsClient,
+    MailCarriersClient,
+    MapsClient,
+    MaterialsClient,
+    MinisClient,
+    MountsClient,
+    NoveltiesClient,
+    MapChestsClient,
+    OutfitsClient,
+    PetsClient
 } from "./api/"
 
 export class GW2ApiClient {
@@ -44,6 +55,17 @@ export class GW2ApiClient {
     readonly guilds: GuildsClient
     readonly home: HomeClient
     readonly items: ItemsClient
+    readonly itemStats: ItemStatsClient
+    readonly legends: LegendsClient
+    readonly mailCarriers: MailCarriersClient
+    readonly mapChests: MapChestsClient
+    readonly maps: MapsClient
+    readonly materials: MaterialsClient
+    readonly minis: MinisClient
+    readonly mounts: MountsClient
+    readonly novelties: NoveltiesClient
+    readonly outfits: OutfitsClient
+    readonly pets: PetsClient
 
     constructor(clientOptions?: ClientOptions) {
         this.account = new AccountClient(clientOptions)
@@ -66,6 +88,17 @@ export class GW2ApiClient {
         this.guilds = new GuildsClient(clientOptions)
         this.home = new HomeClient(clientOptions)
         this.items = new ItemsClient(clientOptions)
+        this.itemStats = new ItemStatsClient(clientOptions)
+        this.legends = new LegendsClient(clientOptions)
+        this.mailCarriers = new MailCarriersClient(clientOptions)
+        this.mapChests = new MapChestsClient(clientOptions)
+        this.maps = new MapsClient(clientOptions)
+        this.materials = new MaterialsClient(clientOptions)
+        this.minis = new MinisClient(clientOptions)
+        this.mounts = new MountsClient(clientOptions)
+        this.novelties = new NoveltiesClient(clientOptions)
+        this.outfits = new OutfitsClient(clientOptions)
+        this.pets = new PetsClient(clientOptions)
     }
 }
 

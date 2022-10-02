@@ -17,16 +17,16 @@ export class ContinentsClient extends BaseApi {
         return (await this.api.get('/v2/continents')).data
     }
 
-    public async getContinentsByIds(continentIds: ContinentTypes.ContinentsIds) { 
-        return (await this.api.get(`/v2/continents?ids=${ continentIds.join(',') }`)).data
+    public async getContinentsByIds(continentIds: ContinentTypes.ContinentsIds): Promise<ContinentTypes.Continent[]> { 
+        return (await this.api.get<ContinentTypes.Continent[]>(`/v2/continents?ids=${ continentIds.join(',') }`)).data
     }
 
-    public async getContinentById(continentId: ContinentTypes.ContinentsIds[number]) { 
-        return (await this.api.get(`/v2/continents/${ continentId }`)).data
+    public async getContinentById(continentId: ContinentTypes.ContinentsIds[number]): Promise<ContinentTypes.Continent> { 
+        return (await this.api.get<ContinentTypes.Continent>(`/v2/continents/${ continentId }`)).data
     }
 
-    public async getFloorsAllIds(continentId: ContinentTypes.ContinentsIds[number]) { 
-        return (await this.api.get(`/v2/continents/${ continentId }/floors`)).data
+    public async getFloorsAllIds(continentId: ContinentTypes.ContinentsIds[number]): Promise<ContinentTypes.FloorsIds> { 
+        return (await this.api.get<ContinentTypes.FloorsIds>(`/v2/continents/${ continentId }/floors`)).data
     }
 
     public async getFloorById({ continentId, floorId }: { continentId: ContinentTypes.ContinentsIds[number], floorId: ContinentTypes.FloorsIds[number] }): Promise<ContinentTypes.FloorDetails> { 

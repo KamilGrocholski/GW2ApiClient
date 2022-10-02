@@ -9,11 +9,11 @@ export type Continent = {
     floors: number[]
 }
 
-type MapRect = [[number, number], [number, number]]
-type LabelCoord = [number, number]
-type Coord = [number, number]
-type Bounds = Coord[] 
-type ContinentRect = [[number, number], [number, number]]
+export type MapRect = [[number, number], [number, number]]
+export type LabelCoord = [number, number]
+export type Coord = [number, number]
+export type Bounds = Coord[] 
+export type ContinentRect = [[number, number], [number, number]]
 // type Dimension = [number, number]
 
 export type Map = {

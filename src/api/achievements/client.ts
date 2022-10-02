@@ -9,8 +9,8 @@ export class AchievementsClient extends BaseApi {
     public async getAllIds(): Promise<AchievementsTypes.AchievementsIds> {
         return (await this.api.get<AchievementsTypes.AchievementsIds>('/v2/achievements')).data
     }
-    public async getByIds(ids: number[]): Promise<AchievementsTypes.Acheviement> {
-        return (await this.api.get<AchievementsTypes.Acheviement>(`/v2/achievements?ids=${ ids.join(',') }`)).data
+    public async getByIds(ids: number[]): Promise<AchievementsTypes.Achievements> {
+        return (await this.api.get<AchievementsTypes.Achievements>(`/v2/achievements?ids=${ ids.join(',') }`)).data
     }
     public async getCategoriesAllIds(): Promise<AchievementsTypes.Achievements> {
         return (await this.api.get<AchievementsTypes.Achievements>('/v2/achievements/categories')).data

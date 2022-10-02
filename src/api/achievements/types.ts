@@ -4,7 +4,7 @@ export type AchievementsIds = number[]
 
 // /v2/achievements
 // getByIds(number[])
-export type Acheviement = {
+export type Achievement = {
     id: number
     icon?: string
     name: string
@@ -40,7 +40,7 @@ export type Acheviement = {
     point_cap?: number 
 }
 
-export type Achievements = Achievements[]
+export type Achievements = Achievement[]
 
 type Coins = {
     type: 'Coins'
