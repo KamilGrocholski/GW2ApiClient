@@ -1,28 +1,13 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse, AxiosRequestHeaders } from "axios"
-import { handleResponse, handleResponseError } from "./actionHandlers"
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from "axios"
+import { handleResponse, handleResponseError, MessageController } from "./actionHandlers"
 
-const baseURL = 'https://api.guildwars2.com'
-const schemaVersion = '2022-03-23T19:00:00.000Z'
-
-
-//TODO pages: {size, numberOfPages}
 export interface ClientOptions {
     apiKey?: string,
     acceptedStatusCodes?: 'EVERY' | 'ONLY_200' 
-    // pages?: {
-    //     size?: number
-    //     numberOfPages?: number
-    // }
 }
 
-// const headers = (clientOptions: ClientOptions): AxiosRequestHeaders => {
-//     if (clientOptions.pages?.size) {}
-//     return {
-//         'Content-Type': 'application/json',
-//         'X-Schema-Version': schemaVersion,
-//         'Authorization': `Bearer ${clientOptions?.apiKey}`,
-//     }
-// }
+const baseURL = 'https://api.guildwars2.com' as const
+const schemaVersion = '2022-03-23T19:00:00.000Z' as const
 
 export class BaseApi {
     protected readonly api: AxiosInstance
@@ -33,19 +18,16 @@ export class BaseApi {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Schema-Version': schemaVersion,
-                'Authorization': `Bearer ${clientOptions?.apiKey}`,
-                // 'X-Page-Size': clientOptions?.pages?.size
+                'Authorization': `Bearer ${clientOptions?.apiKey}`
             }
         })
 
-        //TODO dodać obsługę interceptorów
         this.api.interceptors.request.use(
             (config: AxiosRequestConfig) => {
-                console.log(`GW2 api schema version: ${ schemaVersion }`)
+                MessageController('CYAN', `Request has been sent with the schema version: ${ schemaVersion }`)
                 return config
             },
             (error: AxiosError) => {
-                console.log(`GW2 api schema version: ${ schemaVersion }`)
                 console.log(error.status)
                 return Promise.reject(error)
             }
