@@ -11,8 +11,9 @@
 </p>
 
 <p align="center">
-
+    ```ts
     import { GW2ApiClient } from 'guildwars2-api-client';
+
     const client = new GW2ApiClient({
         apiKey: process.env.GW2_TOKEN,
         acceptedStatusCodes: 'ONLY_200'
@@ -24,5 +25,6 @@
     };
 
     App();
+    ```
 
 </p>
