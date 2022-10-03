@@ -18,10 +18,12 @@
         acceptedStatusCodes: 'ONLY_200'
     });
     ```
+    ```ts
     const App = async () => {
         const dailyAchievements = await client.achievements.getDaily();
         console.log(dailyAchievements);
     };
+    ```
     ```ts
     App();
     ```
