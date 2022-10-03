@@ -1,5 +1,5 @@
 import { BackstoryTypes } from "../backstory"
-import { Attributes, Bindings, Disciplines, Genders, ItemStoreLocation, Professions, Races, Slots } from "../common/types"
+import { Attributes, Bindings, Discipline, Genders, ItemStoreLocation, Professions, Races, Slots } from "../common/types"
 
 export type CharacterName = string
 
@@ -68,7 +68,7 @@ export type Core = { //OK
 
 export type Crafting = { //OK
     crafting: {
-        discipline: Disciplines
+        discipline: Discipline
         rating: number
         active: boolean
     }[] | null

@@ -9,16 +9,7 @@ export type Professions =
     | 'Mesmer'
     | 'Necromancer'
 
-export type ProfessionsLowerCase =
-    | 'guardian'
-    | 'revenant'
-    | 'warrior'
-    | 'engineer'
-    | 'ranger'
-    | 'thief'
-    | 'elementalist'
-    | 'mesmer'
-    | 'necromancer'
+export type ProfessionsLowerCase = Lowercase<Professions>
 
 export type Races =
     | 'Asura'
@@ -31,17 +22,7 @@ export type Genders =
     | 'Male'
     | 'Female'
 
-
-export type Disciplines =
-    | 'Armorsmith'
-    | 'Artificer'
-    | 'Chef'
-    | 'Huntsman'
-    | 'Jeweler'
-    | 'Leatherworker'
-    | 'Scribe'
-    | 'Tailor'
-    | 'Weaponsmith'
+export type RacesWithGenders = `${Races}${Genders}`
 
 export type Slots =
     | 'HelmAquatic'
@@ -84,10 +65,10 @@ export type ItemStoreLocation =
     | 'LegendaryArmory'
 
 
-export enum Bindings {
-    'Account',
-    'Character'
-}
+export type Bindings = 
+    | 'Account'
+    | 'Character'
+
 
 
 export type WinLossObject = {
@@ -197,6 +178,47 @@ export type ArmorSlot =
     | 'Leggings'
     | 'Shoulders'
 
+export type TrinketType = 
+    | 'Amulet'
+    | 'Earring' 
+    | 'Ring'
+
+export type FoodType = 
+    | 'Dessert'
+    | 'Feast'
+    | 'IngredientCooking'
+    | 'Meal'
+    | 'Seasoning'
+    | 'Snack'
+    | 'Soup'
+    | 'Food'
+
+export type CraftingComponentType = 
+    | 'Component'
+    | 'Inscription'
+    | 'Insignia'
+    | 'LegendaryComponent'
+
+export type Refinement =
+    | 'Refinement'
+    | 'RefinementEctoplasm'
+    | 'RefinementObsidian'
+
+export type GuildItemType =
+    | 'GuildConsumable'
+    | 'GuildDecoration'
+    | 'GuildConsumableWvw'
+
+export type OtherItemsType =
+    | 'Backpack'
+    | 'Bag'
+    | 'Bulk'
+    | 'Consumable'
+    | 'Dye'
+    | 'Food'
+    | 'Potion'
+    | 'UpgradeComponent'
+
 export type WeightClass = 
     | 'Heavy'
     | 'Medium'
@@ -219,6 +241,17 @@ export type ConsumableType =
     | 'UpgradeRemoval'
     | 'Utility'
     | 'TeleportToFriend'
+
+export type Discipline = 
+    | 'Artificer'
+    | 'Armorsmith'
+    | 'Chef'
+    | 'Huntsman'
+    | 'Jeweler'
+    | 'Leatherworker'
+    | 'Tailor'
+    | 'Weaponsmith'
+    | 'Scribe'
 
 export type UnlockType = 
     | 'BagSlot'
@@ -256,3 +289,38 @@ export type OtherWeapon = 'LargeBundle' | 'SmallBundle' | 'Toy' | 'ToyTwoHanded'
 export type DamageType = 'Fire' | 'Ice' | 'Lightning' | 'Physical' | 'Choking'
 
 export type Server = 'eu' | 'na'
+
+export type SkillType = 
+    | 'Bundle'
+    | 'Elite'
+    | 'Heal'
+    | 'Monster'
+    | 'Pet'
+    | 'Profession'
+    | 'Toolbelt'
+    | 'Transform'
+    | 'Utility'
+    | 'Weapon'
+
+export type SkillSlot = 
+    | 'Downed_1'
+    | 'Downed_2'
+    | 'Downed_3'
+    | 'Downed_4'
+    | 'Pet'
+    | 'Profession_1'
+    | 'Profession_2'
+    | 'Profession_3'
+    | 'Profession_4'
+    | 'Profession_5'
+    | 'Utility'
+    | 'Weapon_1'
+    | 'Weapon_2'
+    | 'Weapon_3'
+    | 'Weapon_4'
+    | 'Weapon_5'
+
+export type MaterialType =  
+    | 'cloth'
+    | 'leather'
+    | 'metal'

@@ -33,7 +33,22 @@ import {
     OutfitsClient,
     PetsClient,
     ProfessionsClient,
-    PvPClient
+    PvPClient,
+    QuaggansClient,
+    RacesClient,
+    RaidsClient,
+    RecipesClient,
+    QuestsClient,
+    SkillsClient,
+    SkinsClient,
+    SpecializationsClient,
+    StoriesClient,
+    TitlesClient,
+    TokenInfoClient,
+    TraitsClient,
+    WorldBossesClient,
+    WorldsClient,
+    WvWClient
 } from "./api/"
 
 export class GW2ApiClient {
@@ -70,6 +85,21 @@ export class GW2ApiClient {
     readonly pets: PetsClient
     readonly professions: ProfessionsClient
     readonly pvp: PvPClient
+    readonly quaggans: QuaggansClient
+    readonly races: RacesClient
+    readonly raids: RaidsClient
+    readonly recipes: RecipesClient
+    readonly quests: QuestsClient
+    readonly skills: SkillsClient
+    readonly skins: SkinsClient
+    readonly specializations: SpecializationsClient
+    readonly stories: StoriesClient
+    readonly titles: TitlesClient
+    readonly tokenInfo: TokenInfoClient
+    readonly traits: TraitsClient
+    readonly worldBosses: WorldBossesClient
+    readonly worlds: WorldsClient
+    readonly wvw: WvWClient
 
     constructor(clientOptions?: ClientOptions) {
         this.account = new AccountClient(clientOptions)
@@ -105,6 +135,21 @@ export class GW2ApiClient {
         this.pets = new PetsClient(clientOptions)
         this.professions = new ProfessionsClient(clientOptions)
         this.pvp = new PvPClient(clientOptions)
+        this.quaggans = new QuaggansClient(clientOptions)
+        this.quests = new QuestsClient(clientOptions)
+        this.races = new RacesClient(clientOptions)
+        this.raids = new RaidsClient(clientOptions)
+        this.recipes = new RecipesClient(clientOptions)
+        this.skills = new SkillsClient(clientOptions)
+        this.skins = new SkinsClient(clientOptions)
+        this.specializations = new SpecializationsClient(clientOptions)
+        this.stories = new StoriesClient(clientOptions)
+        this.titles = new TitlesClient(clientOptions)
+        this.tokenInfo = new TokenInfoClient(clientOptions)
+        this.traits = new TraitsClient(clientOptions)
+        this.worldBosses = new WorldBossesClient(clientOptions)
+        this.worlds = new WorldsClient(clientOptions)
+        this.wvw = new WvWClient(clientOptions)
     }
 }
 

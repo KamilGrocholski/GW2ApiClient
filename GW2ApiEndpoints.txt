@@ -1,3 +1,5 @@
+From: https://wiki.guildwars2.com/wiki/API:2
+
 /v2/account
     /v2/account/achievements
     /v2/account/bank

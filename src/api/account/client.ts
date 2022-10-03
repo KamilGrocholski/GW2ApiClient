@@ -6,109 +6,109 @@ export class AccountClient extends BaseApi {
         super(clientOptions)
     }
 
-    getaccount() {
+    getAccount() {
         return this.get<Account>('/v2/account')
     }
-    getachievements() {
+    getAchievements() {
         return this.get<Achievements>('/v2/account/achievements')
     }
-    getbank() {
+    getBank() {
         return this.get<Bank>('/v2/account/bank')
     }
-    getbuildStorage() { //TODO interface
+    getBuildStorage() { //TODO interface
         return this.get<BuildStorage>('/v2/account/buildstorage')
     }
-    getdailyCrafting() {
+    getDailyCrafting() {
         return this.get<DailyCrafting>('/v2/account/dailycrafting')
     }
-    getdyes() {
+    getDyes() {
         return this.get<Dyes>('/v2/account/dyes')
     }
-    getdungeons() {
+    getDungeons() {
         return this.get<Dungeons>('/v2/account/dungeons')
     }
-    getemotes() {
+    getEmotes() {
         return this.get<Emotes>('/v2/account/emotes')
     }
-    getfinishers() {
+    getFinishers() {
         return this.get<Finishers>('/v2/account/finishers')
     }
-    getgliders() {
+    getGliders() {
         return this.get<Gliders>('/v2/account/gliders')
     }
-    gethome() {
+    getHome() {
         return this.get<Home>('/v2/account/home')
     }
-    gethome_cats() {
+    getHomeCats() {
         return this.get<Home_Cats>('/v2/account/home/cats')
     }
-    gethome_nodes() {
+    getHomeNodes() {
         return this.get<Home_Nodes>('/v2/account/home/nodes')
     }
-    getinventory() {
+    getInventory() {
         return this.get<Inventory>('/v2/account/inventory')
     }
-    getlegendaryArmory() {
+    getLegendaryArmory() {
         return this.get<LegendaryArmory>('/v2/account/legendaryarmory')
     }
-    getluck() {
+    getLuck() {
         return this.get<Luck>('/v2/account/luck')
     }
-    getmailCarriers() {
+    getMailCarriers() {
         return this.get<MailCarriers>('/v2/account/mailcarriers')
     }
-    getmapChests() {
+    getMapChests() {
         return this.get<MapChests>('/v2/account/mapchests')
     }
-    getmasteries() {
+    getMasteries() {
         return this.get<Masteries>('/v2/account/masteries')
     }
-    getmastery_points() {
+    getMasteryPoints() {
         return this.get<MasteryPoints>('/v2/account/mastery/points')
     }
-    getmaterials() {
+    getMaterials() {
         return this.get<Materials>('/v2/account/materials')
     }
-    getminis() {
+    getMinis() {
         return this.get<Minis>('/v2/account/minis')
     }
-    getmounts() {
+    getMounts() {
         return this.get<Mounts>('/v2/account/mounts')
     }
-    getmounts_skins() {
+    getMountsSkins() {
         return this.get<Mounts_Skins>('/v2/account/mounts/skins')
     }
-    getmounts_types() {
+    getMountsTypes() {
         return this.get<Mounts_Types>('/v2/account/mounts/types')
     }
-    getnovelties() {
+    getNovelties() {
         return this.get<Novelties>('/v2/account/novelties')
     }
-    getoutfits() {
+    getOutfits() {
         return this.get<Outfits>('/v2/account/outfits')
     }
-    getprogression() {
+    getProgression() {
         return this.get<Progression>('/v2/account/progression')
     }
-    getpvp_heroes() {
+    getPvPHeroes() {
         return this.get<PvPHeroes>('/v2/account/pvp/heroes')
     }
-    getraids() {
+    getRaids() {
         return this.get<Raids>('/v2/account/raids')
     }
-    getrecipes() {
+    getRecipes() {
         return this.get<Recipes>('/v2/account/recipes')
     }
-    getskins() {
+    getSkins() {
         return this.get<Skins>('/v2/account/skins')
     }
-    gettitles() {
+    getTitles() {
         return this.get<Titles>('/v2/account/titles')
     }
-    getwallet() {
+    getWallet() {
         return this.get<Wallet>('/v2/account/wallet')
     }
-    getworldBosses() {
+    getWorldBosses() {
         return this.get<WorldBosses>('/v2/account/worldbosses')
     }
 }
