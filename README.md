@@ -10,7 +10,6 @@
   Get started with the <b color="blue">Guild Wars 2 Api Client</b> by running <code>npm i guildwars2-api-client</code>
 </p>
 
-<p align="center">
     ```ts
     import { GW2ApiClient } from 'guildwars2-api-client';
 
@@ -26,5 +25,3 @@
 
     App();
     ```
-
-</p>
