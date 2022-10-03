@@ -1,7 +1,7 @@
-export type ContinentsIds = number[]
+export type ContinentId = number
 
 export type Continent = {
-    id: number
+    id: ContinentId
     name: string
     continent_dims: [number, number]
     min_zoom: number
@@ -17,7 +17,7 @@ export type ContinentRect = [[number, number], [number, number]]
 // type Dimension = [number, number]
 
 export type Map = {
-    name: string
+    name: MapId
     min_level: number
     max_level: number
     default_floor: number
@@ -27,10 +27,10 @@ export type Map = {
     points_of_interest: PointsOfInterest[]
 }
 
-export type MapsIds = number[]
+export type MapId = number
 
 export type FloorDetails = {
-    id: number
+    id: FloorId
     texture_dims: [number, number]
     clamped_view: [ [number, number], [number, number] ]
     regions: Region
@@ -41,18 +41,18 @@ export type FloorDetails = {
     mastery_points: MasteryPoints
 }
 
-export type FloorsIds = number[]
+export type FloorId = number
 
 export type FloorsDetails = FloorDetails[]
 
 export type Region = {
-    name: string
+    name: RegionId
     label_coord: LabelCoord
     continent_rect: ContinentRect
     maps: Map
 }
 
-export type RegionsIds = string[]
+export type RegionId = string
 
 export type PointsOfInterest = {
     name: string

@@ -1,10 +1,8 @@
-export type CatsIds = number[]
+export type CatId = number
 
 export type Cat = {
-    id: number
+    id: CatId
     hint: string
 }
 
-export type Cats = Cat[]
-
-export type Nodes = string[]
+export type Node = string

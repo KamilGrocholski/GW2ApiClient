@@ -1,5 +1,4 @@
 export type MountTypeId = number
-export type MountTypesIds = MountTypeId[]
 
 export type MountType = {
     id: MountTypeId
@@ -9,13 +8,11 @@ export type MountType = {
     skills: number[] | null
 }
 
-export type MountTypes = MountType[]
 
 export type MountSkinId = number
-export type MountSkinsIds = MountSkinId[]
 
 export type MountSkin = {
-    id: string
+    id: MountSkinId
     name: string
     icon: string
     mount: string
@@ -24,5 +21,3 @@ export type MountSkin = {
         material: string
     }[] | null
 }
-
-export type MountSkins = MountSkin[]

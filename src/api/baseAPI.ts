@@ -1,16 +1,28 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from "axios"
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse, AxiosRequestHeaders } from "axios"
 import { handleResponse, handleResponseError } from "./actionHandlers"
 
 const baseURL = 'https://api.guildwars2.com'
 const schemaVersion = '2022-03-23T19:00:00.000Z'
 
 
-
+//TODO pages: {size, numberOfPages}
 export interface ClientOptions {
     apiKey?: string,
     acceptedStatusCodes?: 'EVERY' | 'ONLY_200' 
+    // pages?: {
+    //     size?: number
+    //     numberOfPages?: number
+    // }
 }
 
+// const headers = (clientOptions: ClientOptions): AxiosRequestHeaders => {
+//     if (clientOptions.pages?.size) {}
+//     return {
+//         'Content-Type': 'application/json',
+//         'X-Schema-Version': schemaVersion,
+//         'Authorization': `Bearer ${clientOptions?.apiKey}`,
+//     }
+// }
 
 export class BaseApi {
     protected readonly api: AxiosInstance
@@ -21,7 +33,8 @@ export class BaseApi {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Schema-Version': schemaVersion,
-                'Authorization': `Bearer ${clientOptions?.apiKey}`
+                'Authorization': `Bearer ${clientOptions?.apiKey}`,
+                // 'X-Page-Size': clientOptions?.pages?.size
             }
         })
 
@@ -42,5 +55,10 @@ export class BaseApi {
             (response: AxiosResponse) => handleResponse(response, clientOptions?.acceptedStatusCodes),
             (error: AxiosError<string>) => handleResponseError(error) 
         )
+    }
+
+    protected async get<T>(endpoint: string): Promise<T> {
+        const response = await this.api.get<T>(endpoint)
+        return response.data
     }
 }

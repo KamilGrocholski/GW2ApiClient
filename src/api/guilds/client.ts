@@ -1,68 +1,68 @@
-import { GuildsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { GuildId, Guild, Log, Stash, Treasury, GuildUpgradesInformations, UpgradesListId, Upgrade, LogId, Members, Ranks, Teams } from "./types";
 
 export class GuildsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getGuildIdsByName(name: string): Promise<GuildsTypes.GuildIds> {
-        return (await this.api.get<GuildsTypes.GuildIds>(`/v2/guild/search?name=${ name }`)).data
+    getGuildIdsByName(name: string) {
+        return this.get<GuildId[]>(`/v2/guild/search?name=${ name }`)
     }
 
-    public async getGuildById(id: string): Promise<GuildsTypes.Guild> {
-        return (await this.api.get<GuildsTypes.Guild>(`/v2/guild/${ id }`)).data
+    getGuildById(id: GuildId) {
+        return this.get<Guild>(`/v2/guild/${ id }`)
     }
 
-    public async getGuildLog(id: string, since?: number): Promise<GuildsTypes.Log> {
-        return (await this.api.get<GuildsTypes.Log>(`/v2/guild/${ id }/log?since=${ since }`)).data
+    getGuildLog(id: LogId, since?: number) {
+        return this.get<Log>(`/v2/guild/${ id }/log?since=${ since }`)
     }
 
-    // public async getGuildsByIds(ids: number[]): Promise<GuildsTypes.Guilds> {
-    //     return (await this.api.get<GuildsTypes.Guilds>(`/v2/guilds?ids=${ ids.join(',') }`)).data
+    // getGuildsByIds(ids: number[]): Promise<Guilds> {
+    //     return this.get<Guilds>(`/v2/guilds?ids=${ ids.join(',') }`)
     // }
 
-    public async getGuildMembers(guildId: string): Promise<GuildsTypes.Members> {
-        return (await this.api.get<GuildsTypes.Members>(`/v2/guild/${ guildId }/members`)).data
+    getGuildMembers(guildId: GuildId) {
+        return this.get<Members>(`/v2/guild/${ guildId }/members`)
     }
 
-    public async getGuildRanks(guildId: string): Promise<GuildsTypes.Ranks> {
-        return (await this.api.get<GuildsTypes.Ranks>(`/v2/guild/${ guildId }/ranks`)).data
+    getGuildRanks(guildId: GuildId) {
+        return this.get<Ranks>(`/v2/guild/${ guildId }/ranks`)
     }
 
-    public async getGuildStash(guildId: string): Promise<GuildsTypes.Stash> {
-        return (await this.api.get<GuildsTypes.Stash>(`/v2/guild/${ guildId }/stash`)).data
+    getGuildStash(guildId: GuildId) {
+        return this.get<Stash>(`/v2/guild/${ guildId }/stash`)
     }
 
-    public async getGuildStorage(guildId: string): Promise<GuildsTypes.Storage> {
-        return (await this.api.get<GuildsTypes.Storage>(`/v2/guild/${ guildId }/storage`)).data
+    getGuildStorage(guildId: GuildId) {
+        return this.get<Storage>(`/v2/guild/${ guildId }/storage`)
     }
 
-    public async getGuildTeams(guildId: string): Promise<GuildsTypes.Teams> {
-        return (await this.api.get<GuildsTypes.Teams>(`/v2/guild/${ guildId }/teams`)).data
+    getGuildTeams(guildId: GuildId) {
+        return this.get<Teams>(`/v2/guild/${ guildId }/teams`)
     }
 
-    public async getGuildTreasury(guildId: string): Promise<GuildsTypes.Treasury> {
-        return (await this.api.get<GuildsTypes.Treasury>(`/v2/guild/${ guildId }/treasury`)).data
+    getGuildTreasury(guildId: GuildId) {
+        return this.get<Treasury>(`/v2/guild/${ guildId }/treasury`)
     }
 
-    public async getGuildUpgrades(guildId: string): Promise<GuildsTypes.GuildUpgradesInformations> {
-        return (await this.api.get<GuildsTypes.GuildUpgradesInformations>(`/v2/guild/${ guildId }/upgrades`)).data
+    getGuildUpgrades(guildId: GuildId) {
+        return this.get<GuildUpgradesInformations>(`/v2/guild/${ guildId }/upgrades`)
     }
 
-    public async getPermissions(): Promise<GuildsTypes.Permissions> {
-        return (await this.api.get<GuildsTypes.Permissions>(`/v2/guild/permissions`)).data
+    getPermissions() {
+        return this.get<Permissions>(`/v2/guild/permissions`)
     }
 
-    public async getUpgradesAllIds(): Promise<GuildsTypes.UpgradesListId> {
-        return (await this.api.get<GuildsTypes.UpgradesListId>(`/v2/guild/upgrades`)).data
+    getUpgradesAllIds() {
+        return this.get<UpgradesListId>(`/v2/guild/upgrades`)
     }
 
-    public async getUpgradeById(id: number): Promise<GuildsTypes.Upgrades> {
-        return (await this.api.get<GuildsTypes.Upgrades>(`/v2/guild/upgrades/${ id }`)).data
+    getUpgradeById(id: number) {
+        return this.get<Upgrade>(`/v2/guild/upgrades/${ id }`)
     }
 
-    public async getUpgradesByIds(ids: number[]): Promise<GuildsTypes.Upgrade> {
-        return (await this.api.get<GuildsTypes.Upgrade>(`/v2/guild/upgrades?ids=${ ids.join(',') }`)).data
+    getUpgradesByIds(ids: number[]) {
+        return this.get<Upgrade>(`/v2/guild/upgrades?ids=${ ids.join(',') }`)
     }
 }

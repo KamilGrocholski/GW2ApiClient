@@ -1,20 +1,20 @@
-import { MaterialsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { Material, MaterialId } from "./types";
 
 export class MaterialsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getMaterialsAllIds(): Promise<MaterialsTypes.MaterialsIds> {
-        return (await this.api.get<MaterialsTypes.MaterialsIds>('/v2/materials')).data
+    getMaterialsAllIds() {
+        return this.get<MaterialId[]>('/v2/materials')
     }
 
-    public async getMaterialsByIds(ids: number[]): Promise<MaterialsTypes.Materials> {
-        return (await this.api.get<MaterialsTypes.Materials>(`/v2/materials?ids=${ ids.join(',') }`)).data
+    getMaterialsByIds(ids: MaterialId[]) {
+        return this.get<Material[]>(`/v2/materials?ids=${ ids.join(',') }`)
     }
 
-    public async getMaterialById(id: number): Promise<MaterialsTypes.Material> {
-        return (await this.api.get<MaterialsTypes.Material>(`/v2/materials/${ id }`)).data
+    getMaterialById(id: MaterialId) {
+        return this.get<Material>(`/v2/materials/${ id }`)
     }
 }

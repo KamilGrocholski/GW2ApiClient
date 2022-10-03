@@ -1,20 +1,20 @@
-import { NoveltiesTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { Novelty, NoveltyId } from "./types";
 
 export class NoveltiesClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getNoveltiesAllIds(): Promise<NoveltiesTypes.NoveltiesIds> {
-        return (await this.api.get<NoveltiesTypes.NoveltiesIds>('/v2/novelties')).data
+    getNoveltiesAllIds() {
+        return this.get<NoveltyId[]>('/v2/novelties')
     }
 
-    public async getNoveltiesByIds(ids: number[]): Promise<NoveltiesTypes.Novelties> {
-        return (await this.api.get<NoveltiesTypes.Novelties>(`/v2/novelties?ids=${ ids.join(',') }`)).data
+    getNoveltiesByIds(ids: NoveltyId[]) {
+        return this.get<Novelty[]>(`/v2/novelties?ids=${ ids.join(',') }`)
     }
 
-    public async getNoveltyById(id: number): Promise<NoveltiesTypes.Novelty> {
-        return (await this.api.get<NoveltiesTypes.Novelty>(`/v2/novelties/${ id }`)).data
+    getNoveltyById(id: NoveltyId) {
+        return this.get<Novelty>(`/v2/novelties/${ id }`)
     }
 }

@@ -1,3 +1,5 @@
+import { Attributes } from "../common/types"
+
 export interface ItemStats {
     id: number
     name: string
@@ -17,9 +19,6 @@ export interface ItemStats {
         value: number
     }[]
 }
-
-
-
 
 export interface Account {
     id: string
@@ -169,7 +168,7 @@ export type Inventory = {
     binding?: string 
     stats: {
         id: number
-        attributes: Record<ItemStats['attributes'][number]['attribute'], number>
+        attributes: Partial<Record<Attributes, number>>
     }
 }[]
 

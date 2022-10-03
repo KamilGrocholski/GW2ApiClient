@@ -1,9 +1,9 @@
 import { BackstoryTypes } from "../backstory"
 import { Attributes, Bindings, Disciplines, Genders, ItemStoreLocation, Professions, Races, Slots } from "../common/types"
 
-export type CharactersNames = string[] | null 
+export type CharacterName = string
 
-export type CharactersIds = number[] | null 
+export type CharacterId = number
 
 export type Character = 
     Core
@@ -19,9 +19,7 @@ export type Character =
     & BuildTabs
 
 
-export type Characters = Character[] | null
-
-export type BackstoryIds = BackstoryTypes.AnswersIds // OK  
+export type BackstoryIds = BackstoryTypes.AnswerId[] // OK  
 
 export type BuildTabs = { 
     build_tabs: {
@@ -85,7 +83,7 @@ export type Equipment = { //OK
         skin?: number
         stats?: {
             id: number
-            attributes: Record<Attributes, number | undefined>
+            attributes: Partial<Record<Attributes, number>>
         }  
         binding?: Bindings
         location: ItemStoreLocation
@@ -113,7 +111,7 @@ export type EquipmentTabs = {
             dyes?: number | null 
             stats?: {
                 id: number
-                attributes: Record<Attributes, number>
+                attributes: Partial<Record<Attributes, number>>
             } 
         }[] | null 
         equipment_pvp: {
@@ -143,7 +141,7 @@ export type Inventory = { // OK
                 sking?: number
                 stats?: {
                     id: number
-                    attributes: Record<Attributes, number | undefined>
+                    attributes: Partial<Record<Attributes, number >>
                 } 
                 dyes?: number[] | null
                 binding?: Bindings

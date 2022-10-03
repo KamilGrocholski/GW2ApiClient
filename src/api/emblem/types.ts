@@ -1,8 +1,6 @@
-export type BackgroundsIds = string[]
+export type BackgroundId = string
 
 export type Background = {
-    id: number
+    id: BackgroundId
     layers: string[]
 }
-
-export type Backgrounds = Background[]

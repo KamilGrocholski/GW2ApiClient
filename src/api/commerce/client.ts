@@ -1,53 +1,53 @@
-import { CommerceTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { Delivery, ExchangeRate, ListingId, Listing, PriceId, Price, TransactionsCurrent, TransactionsHistory } from "./types";
 
 export class CommerceClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getDelivery(): Promise<CommerceTypes.Delivery> {
-        return (await this.api.get<CommerceTypes.Delivery>('/v2/commerce/delivery')).data
+    getDelivery() {
+        return this.get<Delivery>('/v2/commerce/delivery')
     }
 
-    public async getExchangeCoinsRate(quantity: number): Promise<CommerceTypes.ExchangeRate> {
-        return (await this.api.get<CommerceTypes.ExchangeRate>(`/v2/commerce/exchange/coins?quantity=${ quantity }`)).data
+    getExchangeCoinsRate(quantity: number) {
+        return this.get<ExchangeRate>(`/v2/commerce/exchange/coins?quantity=${ quantity }`)
     }
 
-    public async getExchangeGemsRate(quantity: number): Promise<CommerceTypes.ExchangeRate> {
-        return (await this.api.get<CommerceTypes.ExchangeRate>(`/v2/commerce/exchange/gems?quantity=${ quantity }`)).data
+    getExchangeGemsRate(quantity: number) {
+        return this.get<ExchangeRate>(`/v2/commerce/exchange/gems?quantity=${ quantity }`)
     }
 
-    public async getListingsAllIds(): Promise<CommerceTypes.ListingsIds> {
-        return (await this.api.get<CommerceTypes.ListingsIds>('/v2/commerce/listings')).data
+    getListingsAllIds() {
+        return this.get<ListingId[]>('/v2/commerce/listings')
     }
 
-    public async getListingsByIds(ids: number[]): Promise<CommerceTypes.Listings> {
-        return (await this.api.get<CommerceTypes.Listings>(`/v2/commerce/listings?ids=${ ids.join(',') }`)).data
+    getListingsByIds(ids: ListingId[]) {
+        return this.get<Listing[]>(`/v2/commerce/listings?ids=${ ids.join(',') }`)
     }
 
-    public async getListingById(id: number): Promise<CommerceTypes.Listing> {
-        return (await this.api.get<CommerceTypes.Listing>(`/v2/commerce/listings/${ id }`)).data
+    getListingById(id: number) {
+        return this.get<Listing>(`/v2/commerce/listings/${ id }`)
     }
 
-    public async getPricesAllIds(): Promise<CommerceTypes.PricesIds> {
-        return (await this.api.get<CommerceTypes.PricesIds>('/v2/commerce/prices')).data
+    getPricesAllIds() {
+        return this.get<PriceId[]>('/v2/commerce/prices')
     }
 
-    public async getPricesByIds(ids: number[]): Promise<CommerceTypes.Listings> {
-        return (await this.api.get<CommerceTypes.Listings>(`/v2/commerce/prices?ids=${ ids.join(',') }`)).data
+    getPricesByIds(ids: PriceId[]) {
+        return this.get<Price[]>(`/v2/commerce/prices?ids=${ ids.join(',') }`)
     }
 
-    public async getPriceById(id: number): Promise<CommerceTypes.Price> {
-        return (await this.api.get<CommerceTypes.Price>(`/v2/commerce/prices/${ id }`)).data
+    getPriceById(id: PriceId) {
+        return this.get<Price>(`/v2/commerce/prices/${ id }`)
     }
 
-    public async getTransactionsCurrent(type: 'buys' | 'sells'): Promise<CommerceTypes.TransactionsCurrent> {
-        return (await this.api.get<CommerceTypes.TransactionsCurrent>(`/v2/commerce/transactions/current/${ type }`)).data
+    getTransactionsCurrent(type: 'buys' | 'sells') {
+        return this.get<TransactionsCurrent>(`/v2/commerce/transactions/current/${ type }`)
     }
 
-    public async getTransactionsHistory(type: 'buys' | 'sells'): Promise<CommerceTypes.TransactionsHistory> {
-        return (await this.api.get<CommerceTypes.TransactionsHistory>(`/v2/commerce/transactions/history/${ type }`)).data
+    getTransactionsHistory(type: 'buys' | 'sells') {
+        return this.get<TransactionsHistory>(`/v2/commerce/transactions/history/${ type }`)
     }
 
 }

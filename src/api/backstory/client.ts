@@ -1,27 +1,27 @@
-import { BackstoryTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { AnswerId, Answer, QuestionId, Question } from "./types";
 
 export class BackstoryClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getAnswersAllIds(): Promise<BackstoryTypes.AnswersIds> {
-        return (await this.api.get<BackstoryTypes.AnswersIds>('/v2/backstory/answers')).data
+    getAnswersAllIds() {
+        return this.get<AnswerId[]>('/v2/backstory/answers')
     }
-    public async getAnswersByIds(ids: string[]): Promise<BackstoryTypes.Answers> {
-        return (await this.api.get<BackstoryTypes.Answers>(`/v2/backstory/answers?ids=${ ids }`)).data
+    getAnswersByIds(ids: AnswerId[]) {
+        return this.get<Answer[]>(`/v2/backstory/answers?ids=${ ids }`)
     }
-    public async getAnswerById(id: string): Promise<BackstoryTypes.Answer> {
-        return (await this.api.get<BackstoryTypes.Answer>(`/v2/backstory/answers/${ id }`)).data
+    getAnswerById(id: AnswerId) {
+        return this.get<Answer>(`/v2/backstory/answers/${ id }`)
     }
-    public async getQuestionsAllIds(): Promise<BackstoryTypes.QuestionIds> {
-        return (await this.api.get<BackstoryTypes.QuestionIds>('/v2/backstory/questions')).data
+    getQuestionsAllIds() {
+        return this.get<QuestionId[]>('/v2/backstory/questions')
     }
-    public async getQuestionsByIds(ids: number[]): Promise<BackstoryTypes.Questions> {
-        return (await this.api.get<BackstoryTypes.Questions>(`/v2/backstory/questions?ids=${ ids }`)).data
+    getQuestionsByIds(ids: QuestionId[]) {
+        return this.get<Question[]>(`/v2/backstory/questions?ids=${ ids }`)
     }
-    public async getQuestionById(id: number): Promise<BackstoryTypes.Question> {
-        return (await this.api.get<BackstoryTypes.Question>(`/v2/backstory/questions/${ id }`)).data
+    getQuestionById(id: QuestionId) {
+        return this.get<Question>(`/v2/backstory/questions/${ id }`)
     }
 }

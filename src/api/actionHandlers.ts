@@ -22,7 +22,7 @@ export const handleResponse = async (
             console.log("\u001b[1;33m206 Status - at least one, but not all of the provided IDs are valid")
             return response
         default: 
-            console.log(status)
+            console.log(response)
             return response
     }
 }
@@ -43,7 +43,7 @@ export const handleResponseError = async (
         case 503:
             console.log("\u001b[1;31m503 Error -  the endpoint is disabled")
             return Promise.reject(error.response?.data)
+        default: 
+            return Promise.reject(error)
     }
-
-    return Promise.reject(error)
 }

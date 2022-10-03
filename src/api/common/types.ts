@@ -9,6 +9,17 @@ export type Professions =
     | 'Mesmer'
     | 'Necromancer'
 
+export type ProfessionsLowerCase =
+    | 'guardian'
+    | 'revenant'
+    | 'warrior'
+    | 'engineer'
+    | 'ranger'
+    | 'thief'
+    | 'elementalist'
+    | 'mesmer'
+    | 'necromancer'
+
 export type Races =
     | 'Asura'
     | 'Charr'
@@ -92,10 +103,12 @@ export type PvPStats = {
     pvp_rank_points: number
     pvp_rank_rollovers: number
     aggregate: WinLossObject
-    professions: WinLossObject
+    professions: Partial<Record<ProfessionsLowerCase, WinLossObject>>
     ladders: {
         ranked: WinLossObject
         unranked: WinLossObject
+        '2v2ranked': WinLossObject
+        '3v3ranked': WinLossObject 
     }
 } 
 
@@ -104,16 +117,16 @@ export type PvPGames = {
     map_id: number
     started: string
     ended: string
-    result: string
-    team: string
-    profession: string
+    result: 'Bye' | 'Defeat' | 'Victory'
+    team: 'Red' | 'Blue'
+    profession: Professions
     scores: {
         red: number
         blue: number
-    } 
+    }
     rating_type: 'Ranked' | 'Unranked' | 'None'
     rating_change: number
-    season?: string 
+    season?: string
 } 
 
 export type ItemType =
@@ -223,14 +236,14 @@ export type UnlockType =
     | 'SharedSlot'
 
 export type WeaponsType = 
-    & OneHandedMainHand 
-    & OneHandedOffHand
-    & TwoHanded
-    & Aquatic
+    | OneHandedMainHand 
+    | OneHandedOffHand
+    | TwoHanded
+    | Aquatic
 
 export type WeaponsWithExtrasType = 
-    & WeaponsType
-    & OtherWeapon
+    | WeaponsType
+    | OtherWeapon
 
 export type ArmorWeight = `${ WeightClass }Armor`
 
@@ -241,3 +254,5 @@ export type Aquatic = 'Harpoon' | 'Speargun' | 'Trident'
 export type OtherWeapon = 'LargeBundle' | 'SmallBundle' | 'Toy' | 'ToyTwoHanded'
 
 export type DamageType = 'Fire' | 'Ice' | 'Lightning' | 'Physical' | 'Choking'
+
+export type Server = 'eu' | 'na'

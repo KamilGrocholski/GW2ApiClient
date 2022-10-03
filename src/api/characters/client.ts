@@ -1,5 +1,5 @@
-import { CharactersTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { CharacterName, Character, Core, Crafting, Equipment, Recipes, HeroPoints, Inventory, Specializations, SuperAdventureBox, Training, BackstoryIds, Skills } from "./types";
 
 export class CharactersClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
@@ -7,67 +7,67 @@ export class CharactersClient extends BaseApi {
     }
 
 
-    public async getAllNames(): Promise<CharactersTypes.CharactersNames> {
-        return (await this.api.get<CharactersTypes.CharactersNames>('/v2/characters')).data
+    getAllNames() {
+        return this.get<CharacterName[]>('/v2/characters')
     }
 
-    public async getCharacterByNameFullInfo(name: string): Promise<CharactersTypes.Character> {
-        return (await this.api.get<CharactersTypes.Character>(`/v2/characters/${ encodeURIComponent(name) }`)).data
+    getCharacterByNameFullInfo(name: string) {
+        return this.get<Character>(`/v2/characters/${ encodeURIComponent(name) }`)
     }
 
-    public async getAllFullInfo(): Promise<CharactersTypes.Characters> {
-        return (await this.api.get<CharactersTypes.Characters>('/v2/characters?ids=all')).data
+    getAllFullInfo() {
+        return this.get<Character[]>('/v2/characters?ids=all')
     }
 
-    public async getCharacterBackstoryAllIds(name: string): Promise<CharactersTypes.BackstoryIds> {
-        return (await this.api.get<CharactersTypes.BackstoryIds>(`/v2/characters/${ name }/backstory`)).data
+    getCharacterBackstoryAllIds(name: string) {
+        return this.get<BackstoryIds>(`/v2/characters/${ name }/backstory`)
     } 
 
-    public async getCharacterCore(name: string): Promise<CharactersTypes.Core> {
-        return (await this.api.get<CharactersTypes.Core>(`/v2/characters/${ name }/core`)).data
+    getCharacterCore(name: string) {
+        return this.get<Core>(`/v2/characters/${ name }/core`)
     }
 
-    public async getCharacterCrafting(name: string): Promise<CharactersTypes.Crafting> {
-        return (await this.api.get<CharactersTypes.Crafting>(`/v2/characters/${ name }/crafting`)).data
+    getCharacterCrafting(name: string) {
+        return this.get<Crafting>(`/v2/characters/${ name }/crafting`)
     }
 
-    public async getCharacterEquipment(name: string): Promise<CharactersTypes.Equipment> {
-        return (await this.api.get<CharactersTypes.Equipment>(`/v2/characters/${ name }/equipment`)).data
+    getCharacterEquipment(name: string) {
+        return this.get<Equipment>(`/v2/characters/${ name }/equipment`)
     }
 
-    // public async getCharacterEquipmentTabs(name: string): Promise<CharactersTypes.Equipment> {
-    //     return (await this.api.get<CharactersTypes.Equipment>(`/v2/characters/${ name }/equipmenttabs`)).data
+    // getCharacterEquipmentTabs(name: string): Promise<Equipment> {
+    //     return this.get<Equipment>(`/v2/characters/${ name }/equipmenttabs`)
     // }
 
-    public async getCharacterRecipes(name: string): Promise<CharactersTypes.Recipes> {
-        return (await this.api.get<CharactersTypes.Recipes>(`/v2/characters/${ name }/recipes`)).data
+    getCharacterRecipes(name: string) {
+        return this.get<Recipes>(`/v2/characters/${ name }/recipes`)
     }
 
-    public async getCharacterHeroPoints(name: string): Promise<CharactersTypes.HeroPoints> {
-        return (await this.api.get<CharactersTypes.HeroPoints>(`/v2/characters/${ name }/heropoints`)).data
+    getCharacterHeroPoints(name: string) {
+        return this.get<HeroPoints>(`/v2/characters/${ name }/heropoints`)
     }
 
-    public async getCharacterInverntory(name: string): Promise<CharactersTypes.Inventory> {
-        return (await this.api.get<CharactersTypes.Inventory>(`/v2/characters/${ name }/inventory`)).data
+    getCharacterInverntory(name: string) {
+        return this.get<Inventory>(`/v2/characters/${ name }/inventory`)
     }
 
-    public async getCharacterSkills(name: string): Promise<CharactersTypes.Skills> {//TODO nie dziala na dla nazwy
-        return (await this.api.get<CharactersTypes.Skills>(`/v2/characters/${ name }/skills`)).data
+    getCharacterSkills(name: string) {//TODO nie dziala na dla nazwy
+        return this.get<Skills>(`/v2/characters/${ name }/skills`)
     }
 
-    public async getCharacterSpecializations(name: string): Promise<CharactersTypes.Specializations> {//TODO nie dziala dla nazwy
-        return (await this.api.get<CharactersTypes.Specializations>(`/v2/characters/${ name }/specializations`)).data
+    getCharacterSpecializations(name: string) {//TODO nie dziala dla nazwy
+        return this.get<Specializations>(`/v2/characters/${ name }/specializations`)
     }
 
-    public async getCharacterSuperAdventureBox(name: string): Promise<CharactersTypes.SuperAdventureBox> {
-        return (await this.api.get<CharactersTypes.SuperAdventureBox>(`/v2/characters/${ name }/sab`)).data
+    getCharacterSuperAdventureBox(name: string) {
+        return this.get<SuperAdventureBox>(`/v2/characters/${ name }/sab`)
     }
 
-    public async getCharacterTraining(name: string): Promise<CharactersTypes.Training> {
-        return (await this.api.get<CharactersTypes.Training>(`/v2/characters/${ name }/training`)).data
+    getCharacterTraining(name: string) {
+        return this.get<Training>(`/v2/characters/${ name }/training`)
     }
 
-    // public async getCharacterExtras(name: string): Promise<CharactersTypes.Extras> {
-    //     return (await this.api.get<CharactersTypes.Extras>(`/v2/characters/${ name }/sab`)).data
+    // getCharacterExtras(name: string): Promise<Extras> {
+    //     return this.get<Extras>(`/v2/characters/${ name }/sab`)
     // }
 }

@@ -1,5 +1,4 @@
 export type MasteryId = number
-export type MasteriessIds = MasteryId[]
 
 export type Mastery = {
     id: MasteryId
@@ -17,5 +16,3 @@ export type Mastery = {
         exp_cost: number
     }[]
 }
-
-export type Masteriess = Mastery[]

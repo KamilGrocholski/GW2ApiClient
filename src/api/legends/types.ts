@@ -1,5 +1,4 @@
 export type LegendId = string
-export type LegendsIds = LegendId[]
 
 export type Legend = {
     id: LegendId
@@ -9,5 +8,3 @@ export type Legend = {
     elite: number
     utilities: number[] | null
 }
-
-export type Legends = Legend[]

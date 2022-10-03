@@ -1,20 +1,20 @@
-import { PetsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { Pet, PetId } from "./types";
 
 export class PetsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getPetsAllIds(): Promise<PetsTypes.PetsIds> {
-        return (await this.api.get<PetsTypes.PetsIds>('/v2/pets')).data
+    getPetsAllIds() {
+        return this.get<PetId[]>('/v2/pets')
     }
 
-    public async getPetsByIds(ids: number[]): Promise<PetsTypes.Pets> {
-        return (await this.api.get<PetsTypes.Pets>(`/v2/pets?ids=${ ids.join(',') }`)).data
+    getPetsByIds(ids: PetId[]) {
+        return this.get<Pet[]>(`/v2/pets?ids=${ ids.join(',') }`)
     }
 
-    public async getPetById(id: number): Promise<PetsTypes.Pet> {
-        return (await this.api.get<PetsTypes.Pet>(`/v2/pets/${ id }`)).data
+    getPetById(id: PetId) {
+        return this.get<Pet>(`/v2/pets/${ id }`)
     }
 }

@@ -1,7 +1,7 @@
-export type GlidersIds = string[]
+export type GliderId = string
 
 export type Glider = {
-    id: number
+    id: GliderId
     unlock_items?: number[] | null
     order: number
     icon: string | null
@@ -9,5 +9,3 @@ export type Glider = {
     description: string 
     default_dyes: number[] | null
 }
-
-export type Gliders = Glider[]

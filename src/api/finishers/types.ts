@@ -1,12 +1,10 @@
-export type FinishersIds = string[]
+export type FinisherId = string
 
 export type Finisher = {
-    id: number
+    id: FinisherId
     unlock_details?: string | null
     unlock_items?: number[] | null
     order: number
     icon: string
     name: string 
 }
-
-export type Finishers = Finisher[]

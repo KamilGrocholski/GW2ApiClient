@@ -11,10 +11,10 @@ export type ExchangeRate = {
     quantity: number
 }
 
-export type ListingsIds = number[]
+export type ListingId = number
 
 export type Listing = {
-    id: number
+    id: ListingId
     buys: {
         listings: number
         unit_price: number
@@ -27,12 +27,11 @@ export type Listing = {
     }[]
 }
 
-export type Listings = Listing[]
 
-export type PricesIds = number[]
+export type PriceId = number
 
 export type Price = {
-    id: number
+    id: PriceId
     whitelisted: boolean
     buys: {
         unit_price: number
@@ -43,8 +42,6 @@ export type Price = {
         quantity: number
     }
 }
-
-export type Prices = Price[]
 
 export type TransactionsCurrent = {
     id: number

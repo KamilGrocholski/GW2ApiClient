@@ -1,12 +1,12 @@
 import { BaseApi, ClientOptions } from "../baseAPI";
-import { MapChestsTypes } from ".";
+import { MapChestId } from "./types";
 
 export class MapChestsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getMapChestsAllIds(): Promise<MapChestsTypes.MapChestsIds> {
-        return (await this.api.get<MapChestsTypes.MapChestsIds>('/v2/mapchests')).data
+    getMapChestsAllIds() {
+        return this.get<MapChestId[]>('/v2/mapchests')
     }
 }

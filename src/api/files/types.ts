@@ -1,8 +1,6 @@
-export type FilesIds = string[]
+export type FileId = string
 
 export type File = {
-    id: string
+    id: FileId
     icon: string
 }
-
-export type Files = File[]

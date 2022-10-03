@@ -1,20 +1,20 @@
-import { CurrenciesTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { CurrencyId, Currency } from "./types";
 
 export class CurrenciesClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getCurrenciesAllIds(): Promise<CurrenciesTypes.CurrenciesIds> {
-        return (await this.api.get<CurrenciesTypes.CurrenciesIds>('/v2/currencies')).data
+    getCurrenciesAllIds() {
+        return this.get<CurrencyId[]>('/v2/currencies')
     }
 
-    public async getCurrencyById(id: number): Promise<CurrenciesTypes.Currency> {
-        return (await this.api.get<CurrenciesTypes.Currency>(`/v2/currencies/${ id }`)).data
+    getCurrencyById(id: CurrencyId) {
+        return this.get<Currency>(`/v2/currencies/${ id }`)
     }
 
-    public async getCurrenciesByIds(ids: number[]): Promise<CurrenciesTypes.Currencies> {
-        return (await this.api.get<CurrenciesTypes.Currencies>(`/v2/currencies?ids=${ ids.join(',') }`)).data
+    getCurrenciesByIds(ids: number[]) {
+        return this.get<Currency[]>(`/v2/currencies?ids=${ ids.join(',') }`)
     }
 }

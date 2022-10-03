@@ -1,5 +1,4 @@
 export type MiniId = number
-export type MinisIds = MiniId[]
 
 export type Mini = {
     id: number
@@ -7,5 +6,3 @@ export type Mini = {
     items: number[] | null
     order: number
 }
-
-export type Minis = Mini[]

@@ -1,5 +1,5 @@
-import { ColorsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { ColorId, Color } from "./types";
 
 export class ColorsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
@@ -7,15 +7,15 @@ export class ColorsClient extends BaseApi {
     }
 
     
-    public async getDyeColorsAllIds(): Promise<ColorsTypes.ColorsIds> {
-        return (await this.api.get<ColorsTypes.ColorsIds>('/v2/colors')).data
+    getDyeColorsAllIds() {
+        return this.get<ColorId[]>('/v2/colors')
     }
 
-    public async getDyeColorById(id: number): Promise<ColorsTypes.Color> {
-        return (await this.api.get<ColorsTypes.Color>(`/v2/colors/${ id }`)).data
+    getDyeColorById(id: ColorId) {
+        return this.get<Color>(`/v2/colors/${ id }`)
     }
 
-    public async getDyeColorsByIds(ids: number[]): Promise<ColorsTypes.Colors> {
-        return (await this.api.get<ColorsTypes.Colors>(`/v2/colors?ids=${ ids.join(',') }`)).data
+    getDyeColorsByIds(ids: ColorId[]) {
+        return this.get<Color[]>(`/v2/colors?ids=${ ids.join(',') }`)
     }
 }

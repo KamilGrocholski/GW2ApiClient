@@ -31,7 +31,9 @@ import {
     NoveltiesClient,
     MapChestsClient,
     OutfitsClient,
-    PetsClient
+    PetsClient,
+    ProfessionsClient,
+    PvPClient
 } from "./api/"
 
 export class GW2ApiClient {
@@ -66,6 +68,8 @@ export class GW2ApiClient {
     readonly novelties: NoveltiesClient
     readonly outfits: OutfitsClient
     readonly pets: PetsClient
+    readonly professions: ProfessionsClient
+    readonly pvp: PvPClient
 
     constructor(clientOptions?: ClientOptions) {
         this.account = new AccountClient(clientOptions)
@@ -99,6 +103,8 @@ export class GW2ApiClient {
         this.novelties = new NoveltiesClient(clientOptions)
         this.outfits = new OutfitsClient(clientOptions)
         this.pets = new PetsClient(clientOptions)
+        this.professions = new ProfessionsClient(clientOptions)
+        this.pvp = new PvPClient(clientOptions)
     }
 }
 

@@ -1,20 +1,20 @@
 import { BaseApi, ClientOptions } from "../baseAPI";
-import { LegendsTypes } from ".";
+import { Legend, LegendId } from "./types";
 
 export class LegendsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getLegendsAllIds(): Promise<LegendsTypes.LegendsIds> {
-        return (await this.api.get<LegendsTypes.LegendsIds>('/v2/legends')).data
+    getLegendsAllIds() {
+        return this.get<LegendId[]>('/v2/legends')
     }
 
-    public async getLegendById(id: string): Promise<LegendsTypes.Legend> {
-        return (await this.api.get<LegendsTypes.Legend>(`/v2/legends/${ id }`)).data
+    getLegendById(id: string) {
+        return this.get<Legend>(`/v2/legends/${ id }`)
     }
 
-    public async getLegendsByIds(ids: string[]): Promise<LegendsTypes.Legends> {
-        return (await this.api.get<LegendsTypes.Legends>(`/v2/legends?ids=${ ids.join(',') }`)).data
+    getLegendsByIds(ids: LegendId[]) {
+        return this.get<Legend[]>(`/v2/legends?ids=${ ids.join(',') }`)
     }
 }

@@ -1,20 +1,20 @@
 import { BaseApi, ClientOptions } from "../baseAPI";
-import { MailCarriersTypes } from ".";
+import { MailCarrier, MailCarrierId } from "./types";
 
 export class MailCarriersClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getMailCarriersAllIds(): Promise<MailCarriersTypes.MailCarriersIds> {
-        return (await this.api.get<MailCarriersTypes.MailCarriersIds>('/v2/MailCarriers')).data
+    getMailCarriersAllIds() {
+        return this.get<MailCarrierId[]>('/v2/MailCarriers')
     }
 
-    public async getMailCarrierById(id: number): Promise<MailCarriersTypes.MailCarrier> {
-        return (await this.api.get<MailCarriersTypes.MailCarrier>(`/v2/MailCarriers/${ id }`)).data
+    getMailCarrierById(id: number) {
+        return this.get<MailCarrier>(`/v2/MailCarriers/${ id }`)
     }
 
-    public async getMailCarriersByIds(ids: number[]): Promise<MailCarriersTypes.MailCarriers> {
-        return (await this.api.get<MailCarriersTypes.MailCarriers>(`/v2/MailCarriers?ids=${ ids.join(',') }`)).data
+    getMailCarriersByIds(ids: MailCarrierId[]) {
+        return this.get<MailCarrier[]>(`/v2/MailCarriers?ids=${ ids.join(',') }`)
     }
 }

@@ -1,5 +1,4 @@
 export type MailCarrierId = number
-export type MailCarriersIds = MailCarrierId[]
 
 export type MailCarrier = {
     id: MailCarrierId
@@ -9,5 +8,3 @@ export type MailCarrier = {
     name: string | null 
     flags: string[] | null
 }
-
-export type MailCarriers = MailCarrier[]

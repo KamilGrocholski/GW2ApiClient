@@ -1,7 +1,7 @@
-export type DungeonsIds = string[]
+export type DungeonId = string
 
 export type Dungeon = {
-    id: string
+    id: DungeonId
     paths: {
         id: string
         type: 'Story' | 'Explorable'

@@ -1,33 +1,33 @@
 import { BaseApi, ClientOptions } from "../baseAPI"
-import * as AchievementsTypes from './types'
+import { Achievement, AchievementId, Category, CategoryId, Daily, Group, GroupId } from "./types"
 
 export class AchievementsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getAllIds(): Promise<AchievementsTypes.AchievementsIds> {
-        return (await this.api.get<AchievementsTypes.AchievementsIds>('/v2/achievements')).data
+    getAchievementsAllIds() {
+        return this.get<AchievementId[]>('/v2/achievements')
     }
-    public async getByIds(ids: number[]): Promise<AchievementsTypes.Achievements> {
-        return (await this.api.get<AchievementsTypes.Achievements>(`/v2/achievements?ids=${ ids.join(',') }`)).data
+    getAchievementsByIds(ids: AchievementId[]) {
+        return this.get<Achievement[]>(`/v2/achievements?ids=${ ids.join(',') }`)
     }
-    public async getCategoriesAllIds(): Promise<AchievementsTypes.Achievements> {
-        return (await this.api.get<AchievementsTypes.Achievements>('/v2/achievements/categories')).data
+    getCategoriesAllIds() {
+        return this.get<CategoryId[]>('/v2/achievements/categories')
     }
-    public async getCategoriesByIds(ids: number[]): Promise<AchievementsTypes.CategoriesIds> {
-        return (await this.api.get<AchievementsTypes.CategoriesIds>(`/v2/achievements/categories?ids=${ ids.join(',') }`)).data
+    getCategoriesByIds(ids: CategoryId[]){
+        return this.get<Category[]>(`/v2/achievements/categories?ids=${ ids.join(',') }`)
     }
-    public async getDaily(): Promise<AchievementsTypes.Daily> {
-        return (await this.api.get<AchievementsTypes.Daily>('/v2/achievements/daily')).data
+    getDaily() {
+        return this.get<Daily>('/v2/achievements/daily')
     }
-    public async getDailyTomorrow(): Promise<AchievementsTypes.Daily> {
-        return (await this.api.get<AchievementsTypes.Daily>('/v2/achievements/daily/tomorrow')).data
+    getDailyTomorrow() {
+        return this.get<Daily>('/v2/achievements/daily/tomorrow')
     }
-    public async getGroupsAllIds(): Promise<AchievementsTypes.GroupsIds> {
-        return (await this.api.get<AchievementsTypes.GroupsIds>('/v2/achievements/groups')).data
+    getGroupsAllIds() {
+        return this.get<GroupId[]>('/v2/achievements/groups')
     }
-    public async getGroupsByIds(ids: string[]): Promise<AchievementsTypes.Groups> {
-        return (await this.api.get<AchievementsTypes.Groups>(`/v2/achievements/groups?ids=${ ids.join(',') }`)).data
+    getGroupsByIds(ids: GroupId[]) {
+        return this.get<Group[]>(`/v2/achievements/groups?ids=${ ids.join(',') }`)
     }
 }

@@ -1,7 +1,6 @@
 import { ContinentRect, MapRect } from "../continents/types"
 
 export type MapId = number
-export type MapsIds = MapId[]
 
 export type Map = {
     id: MapId
@@ -28,5 +27,3 @@ export type Map = {
     map_rect: MapRect
     continent_rect: ContinentRect
 }
-
-export type Maps = Map[]

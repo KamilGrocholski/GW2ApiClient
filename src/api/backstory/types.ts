@@ -1,9 +1,9 @@
 import { Professions, Races } from "../common/types"
 
-export type AnswersIds = Answer['id'][]
+export type AnswerId = string
 
 export type Answer = {
-    id: string
+    id: AnswerId
     title: string
     description: string
     journal: string
@@ -12,12 +12,10 @@ export type Answer = {
     races?: (Races)[]
 }
 
-export type Answers = Answer[]
-
-export type QuestionIds = Question['id'][] 
+export type QuestionId = number
 
 export type Question = {
-    id: number
+    id: QuestionId
     title: string
     description: string
     answers: Answer['id'][]
@@ -25,5 +23,3 @@ export type Question = {
     races: (Races)[]
     professions: (Professions)[]
 }
-
-export type Questions = Question[]

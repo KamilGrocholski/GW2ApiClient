@@ -1,1 +1,1 @@
-export type TimeGatedRecipes = string[]
+export type TimeGatedRecipe = string

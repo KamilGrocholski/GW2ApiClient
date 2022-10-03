@@ -1,11 +1,9 @@
-export type CurrenciesIds = number[]
+export type CurrencyId = number
 
 export type Currency = {
-    id: number
+    id: CurrencyId
     name: string
     description: string
     icon: string
     order: number
 }
-
-export type Currencies = Currency[]

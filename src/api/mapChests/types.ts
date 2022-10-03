@@ -1,1 +1,1 @@
-export type MapChestsIds = string[]
+export type MapChestId = string

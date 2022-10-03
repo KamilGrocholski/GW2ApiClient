@@ -1,20 +1,20 @@
 import { BaseApi, ClientOptions } from "../baseAPI";
-import { ItemStatsTypes } from ".";
+import { ItemStat, ItemStatId } from "./types";
 
 export class ItemStatsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getItemStatsAllIds(): Promise<ItemStatsTypes.ItemStatsIds> {
-        return (await this.api.get<ItemStatsTypes.ItemStatsIds>('/v2/itemstats')).data
+    getItemStatsAllIds() {
+        return this.get<ItemStatId[]>('/v2/itemstats')
     }
 
-    public async getItemStatById(id: number): Promise<ItemStatsTypes.ItemStat> {
-        return (await this.api.get<ItemStatsTypes.ItemStat>(`/v2/itemstats/${ id }`)).data
+    getItemStatById(id: ItemStatId) {
+        return this.get<ItemStat>(`/v2/itemstats/${ id }`)
     }
 
-    public async getItemStatsByIds(ids: number[]): Promise<ItemStatsTypes.ItemStats> {
-        return (await this.api.get<ItemStatsTypes.ItemStats>(`/v2/itemstats?ids=${ ids.join(',') }`)).data
+    getItemStatsByIds(ids: ItemStatId[]) {
+        return this.get<ItemStat>(`/v2/itemstats?ids=${ ids.join(',') }`)
     }
 }

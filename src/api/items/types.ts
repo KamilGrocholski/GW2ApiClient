@@ -1,7 +1,6 @@
 import { ItemRarity, ItemType, ItemFlag, GameType, ArmorSlot, WeightClass, ConsumableType, UnlockType, WeaponsType, ArmorWeight, Attributes, WeaponsWithExtrasType, DamageType } from "../common/types"
 
 export type ItemId = number
-export type ItemsIds = ItemId[]
 
 export type Item = {
     id: ItemId
@@ -39,7 +38,6 @@ export type Item = {
         | Weapon
 }
 
-export type Items = Item[]
 
 export type InfusionSlots = {
     attribute_adjustment: number

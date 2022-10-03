@@ -1,20 +1,20 @@
-import { MapsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { MapId, Map } from "./types";
 
 export class MapsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getMapsAllIds(): Promise<MapsTypes.MapsIds> {
-        return (await this.api.get<MapsTypes.MapsIds>('/v2/maps')).data
+    getMapsAllIds() {
+        return this.get<MapId[]>('/v2/maps')
     }
 
-    public async getMapsByIds(ids: number[]): Promise<MapsTypes.Maps> {
-        return (await this.api.get<MapsTypes.Maps>(`/v2/maps?ids=${ ids.join(',') }`)).data
+    getMapsByIds(ids: MapId[]) {
+        return this.get<Map[]>(`/v2/maps?ids=${ ids.join(',') }`)
     }
 
-    public async getMapById(id: number): Promise<MapsTypes.Map> {
-        return (await this.api.get<MapsTypes.Map>(`/v2/maps/${ id }`)).data
+    getMapById(id: MapId) {
+        return this.get<Map>(`/v2/maps/${ id }`)
     }
 }

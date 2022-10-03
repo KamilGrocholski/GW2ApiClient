@@ -1,20 +1,20 @@
-import { ItemsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { Item, ItemId } from "./types";
 
 export class ItemsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getItemsAllIds(): Promise<ItemsTypes.ItemsIds> {
-        return (await this.api.get<ItemsTypes.ItemsIds>('v2/items')).data
+    getItemsAllIds() {
+        return this.get<ItemId[]>('v2/items')
     }
 
-    public async getItemById(id: number): Promise<ItemsTypes.Item> {
-        return (await this.api.get<ItemsTypes.Item>(`/v2/items/${ id }`)).data
+    getItemById(id: ItemId) {
+        return this.get<Item>(`/v2/items/${ id }`)
     }
 
-    public async getItemsByIds(ids: number[]): Promise<ItemsTypes.Items> {
-        return (await this.api.get<ItemsTypes.Items>(`v2/items?ids=${ ids.join(',') }`)).data
+    getItemsByIds(ids: ItemId[]) {
+        return this.get<Item[]>(`v2/items?ids=${ ids.join(',') }`)
     }
 }

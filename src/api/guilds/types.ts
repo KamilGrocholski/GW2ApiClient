@@ -1,9 +1,9 @@
 import { PvPGames, PvPStats } from "../common/types"
 
-export type GuildIds = string[]
+export type GuildId = string
 
 export type Guild = {
-    id: string
+    id: GuildId
     name: string
     tag: string
     emblem: {
@@ -29,8 +29,10 @@ export type GuildeWithLeaderOrMemberTokek = {
     member_capacity: number
 } & Guild 
 
+export type LogId = number
+
 export type Log = {
-    id: number
+    id: LogId
     time: string
     user?: string
     type: 'joined' | 'kick' | 'rank_change' | 'treasury' | 'stash' | 'motd' | 'upgrade'
@@ -44,7 +46,7 @@ export type Log = {
     action?: 'queued' | 'cancelled' | 'completed' | 'sped_up'
     upgrade_id?: number
     recipe_id?: number
-} & Record<'invited_by' | 'kicked_by' | 'changed_by', string>
+} & Partial<Record<'invited_by' | 'kicked_by' | 'changed_by', string>>
 
 export type Members = {
     name: string
@@ -139,7 +141,5 @@ export type Upgrade = {
         item_id?: number 
     }[]
 }
-
-export type Upgrades = Upgrade[]
 
 export type UpgradesListId = number[] | null

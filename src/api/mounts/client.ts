@@ -1,32 +1,32 @@
-import { MountsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { MountTypeId, MountType, MountSkinId, MountSkin } from "./types";
 
 export class MountsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getTypesAllIds(): Promise<MountsTypes.MountTypesIds> {
-        return (await this.api.get<MountsTypes.MountTypesIds>('/v2/mounts/types')).data
+    getTypesAllIds() {
+        return this.get<MountTypeId[]>('/v2/mounts/types')
     }
 
-    public async getTypesByIds(ids: string[]): Promise<MountsTypes.MountTypes> {
-        return (await this.api.get<MountsTypes.MountTypes>(`/v2/mounts/types?ids=${ ids.join(',') }`)).data
+    getTypesByIds(ids: MountTypeId[]) {
+        return this.get<MountType[]>(`/v2/mounts/types?ids=${ ids.join(',') }`)
     }
 
-    public async getTypeById(id: string): Promise<MountsTypes.MountType> {
-        return (await this.api.get<MountsTypes.MountType>(`/v2/mounts/types/${ id }`)).data
+    getTypeById(id: MountTypeId) {
+        return this.get<MountType>(`/v2/mounts/types/${ id }`)
     }
 
-    public async getSkinsAllIds(): Promise<MountsTypes.MountSkinsIds> {
-        return (await this.api.get<MountsTypes.MountTypesIds>('/v2/mounts/skins')).data
+    getSkinsAllIds() {
+        return this.get<MountSkinId[]>('/v2/mounts/skins')
     }
 
-    public async getSkinsByIds(ids: number[]): Promise<MountsTypes.MountSkins> {
-        return (await this.api.get<MountsTypes.MountSkins>(`/v2/mounts/skins?ids=${ ids.join(',') }`)).data
+    getSkinsByIds(ids: MountSkinId[]) {
+        return this.get<MountSkin[]>(`/v2/mounts/skins?ids=${ ids.join(',') }`)
     }
 
-    public async getSkinById(id: number): Promise<MountsTypes.MountSkin> {
-        return (await this.api.get<MountsTypes.MountSkin>(`/v2/mounts/skins/${ id }`)).data
+    getSkinById(id: MountSkin) {
+        return this.get<MountSkin>(`/v2/mounts/skins/${ id }`)
     }
 }

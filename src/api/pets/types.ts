@@ -1,5 +1,4 @@
 export type PetId = number
-export type PetsIds = PetId[]
 
 export type Pet = {
     id: PetId
@@ -10,5 +9,3 @@ export type Pet = {
         id: number
     }[] | null
 }
-
-export type Pets = Pet[]

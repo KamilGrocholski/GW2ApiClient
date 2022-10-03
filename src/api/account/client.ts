@@ -1,114 +1,114 @@
 import { BaseApi, ClientOptions } from '../baseAPI'
-import * as AccountTypes from './types'
+import { Account, Achievements, Bank, BuildStorage, DailyCrafting, Dungeons, Dyes, Emotes, Finishers, Gliders, Home, Home_Cats, Home_Nodes, Inventory, LegendaryArmory, Luck, MailCarriers, MapChests, Masteries, MasteryPoints, Materials, Minis, Mounts, Mounts_Skins, Mounts_Types, Novelties, Outfits, Progression, PvPHeroes, Raids, Recipes, Skins, Titles, Wallet, WorldBosses } from './types'
 
 export class AccountClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async account(): Promise<AccountTypes.Account> {
-        return (await this.api.get<AccountTypes.Account>('/v2/account')).data
+    getaccount() {
+        return this.get<Account>('/v2/account')
     }
-    public async achievements(): Promise<AccountTypes.Achievements> {
-        return (await this.api.get<AccountTypes.Achievements>('/v2/account/achievements')).data
+    getachievements() {
+        return this.get<Achievements>('/v2/account/achievements')
     }
-    public async bank(): Promise<AccountTypes.Bank> {
-        return (await this.api.get<AccountTypes.Bank>('/v2/account/bank')).data
+    getbank() {
+        return this.get<Bank>('/v2/account/bank')
     }
-    public async buildStorage(): Promise<AccountTypes.BuildStorage> { //TODO interface
-        return (await this.api.get<AccountTypes.BuildStorage>('/v2/account/buildstorage')).data
+    getbuildStorage() { //TODO interface
+        return this.get<BuildStorage>('/v2/account/buildstorage')
     }
-    public async dailyCrafting(): Promise<AccountTypes.DailyCrafting> {
-        return (await this.api.get<AccountTypes.DailyCrafting>('/v2/account/dailycrafting')).data
+    getdailyCrafting() {
+        return this.get<DailyCrafting>('/v2/account/dailycrafting')
     }
-    public async dyes(): Promise<AccountTypes.Dyes> {
-        return (await this.api.get<AccountTypes.Dyes>('/v2/account/dyes')).data
+    getdyes() {
+        return this.get<Dyes>('/v2/account/dyes')
     }
-    public async dungeons(): Promise<AccountTypes.Dungeons> {
-        return (await this.api.get<AccountTypes.Dungeons>('/v2/account/dungeons')).data
+    getdungeons() {
+        return this.get<Dungeons>('/v2/account/dungeons')
     }
-    public async emotes(): Promise<AccountTypes.Emotes> {
-        return (await this.api.get<AccountTypes.Emotes>('/v2/account/emotes')).data
+    getemotes() {
+        return this.get<Emotes>('/v2/account/emotes')
     }
-    public async finishers(): Promise<AccountTypes.Finishers> {
-        return (await this.api.get<AccountTypes.Finishers>('/v2/account/finishers')).data
+    getfinishers() {
+        return this.get<Finishers>('/v2/account/finishers')
     }
-    public async gliders(): Promise<AccountTypes.Gliders> {
-        return (await this.api.get<AccountTypes.Gliders>('/v2/account/gliders')).data
+    getgliders() {
+        return this.get<Gliders>('/v2/account/gliders')
     }
-    public async home(): Promise<AccountTypes.Home> {
-        return (await this.api.get<AccountTypes.Home>('/v2/account/home')).data
+    gethome() {
+        return this.get<Home>('/v2/account/home')
     }
-    public async home_cats(): Promise<AccountTypes.Home_Cats> {
-        return (await this.api.get<AccountTypes.Home_Cats>('/v2/account/home/cats')).data
+    gethome_cats() {
+        return this.get<Home_Cats>('/v2/account/home/cats')
     }
-    public async home_nodes(): Promise<AccountTypes.Home_Nodes> {
-        return (await this.api.get<AccountTypes.Home_Nodes>('/v2/account/home/nodes')).data
+    gethome_nodes() {
+        return this.get<Home_Nodes>('/v2/account/home/nodes')
     }
-    public async inventory(): Promise<AccountTypes.Inventory> {
-        return (await this.api.get<AccountTypes.Inventory>('/v2/account/inventory')).data
+    getinventory() {
+        return this.get<Inventory>('/v2/account/inventory')
     }
-    public async legendaryArmory(): Promise<AccountTypes.LegendaryArmory> {
-        return (await this.api.get<AccountTypes.LegendaryArmory>('/v2/account/legendaryarmory')).data
+    getlegendaryArmory() {
+        return this.get<LegendaryArmory>('/v2/account/legendaryarmory')
     }
-    public async luck(): Promise<AccountTypes.Luck> {
-        return (await this.api.get<AccountTypes.Luck>('/v2/account/luck')).data
+    getluck() {
+        return this.get<Luck>('/v2/account/luck')
     }
-    public async mailCarriers(): Promise<AccountTypes.MailCarriers> {
-        return (await this.api.get<AccountTypes.MailCarriers>('/v2/account/mailcarriers')).data
+    getmailCarriers() {
+        return this.get<MailCarriers>('/v2/account/mailcarriers')
     }
-    public async mapChests(): Promise<AccountTypes.MapChests> {
-        return (await this.api.get<AccountTypes.MapChests>('/v2/account/mapchests')).data
+    getmapChests() {
+        return this.get<MapChests>('/v2/account/mapchests')
     }
-    public async masteries(): Promise<AccountTypes.Masteries> {
-        return (await this.api.get<AccountTypes.Masteries>('/v2/account/masteries')).data
+    getmasteries() {
+        return this.get<Masteries>('/v2/account/masteries')
     }
-    public async mastery_points(): Promise<AccountTypes.MasteryPoints> {
-        return (await this.api.get<AccountTypes.MasteryPoints>('/v2/account/mastery/points')).data
+    getmastery_points() {
+        return this.get<MasteryPoints>('/v2/account/mastery/points')
     }
-    public async materials(): Promise<AccountTypes.Materials> {
-        return (await this.api.get<AccountTypes.Materials>('/v2/account/materials')).data
+    getmaterials() {
+        return this.get<Materials>('/v2/account/materials')
     }
-    public async minis(): Promise<AccountTypes.Minis> {
-        return (await this.api.get<AccountTypes.Minis>('/v2/account/minis')).data
+    getminis() {
+        return this.get<Minis>('/v2/account/minis')
     }
-    public async mounts(): Promise<AccountTypes.Mounts> {
-        return (await this.api.get<AccountTypes.Mounts>('/v2/account/mounts')).data
+    getmounts() {
+        return this.get<Mounts>('/v2/account/mounts')
     }
-    public async mounts_skins(): Promise<AccountTypes.Mounts_Skins> {
-        return (await this.api.get<AccountTypes.Mounts_Skins>('/v2/account/mounts/skins')).data
+    getmounts_skins() {
+        return this.get<Mounts_Skins>('/v2/account/mounts/skins')
     }
-    public async mounts_types(): Promise<AccountTypes.Mounts_Types> {
-        return (await this.api.get<AccountTypes.Mounts_Types>('/v2/account/mounts/types')).data
+    getmounts_types() {
+        return this.get<Mounts_Types>('/v2/account/mounts/types')
     }
-    public async novelties(): Promise<AccountTypes.Novelties> {
-        return (await this.api.get<AccountTypes.Novelties>('/v2/account/novelties')).data
+    getnovelties() {
+        return this.get<Novelties>('/v2/account/novelties')
     }
-    public async outfits(): Promise<AccountTypes.Outfits> {
-        return (await this.api.get<AccountTypes.Outfits>('/v2/account/outfits')).data
+    getoutfits() {
+        return this.get<Outfits>('/v2/account/outfits')
     }
-    public async progression(): Promise<AccountTypes.Progression> {
-        return (await this.api.get<AccountTypes.Progression>('/v2/account/progression')).data
+    getprogression() {
+        return this.get<Progression>('/v2/account/progression')
     }
-    public async pvp_heroes(): Promise<AccountTypes.PvPHeroes> {
-        return (await this.api.get<AccountTypes.PvPHeroes>('/v2/account/pvp/heroes')).data
+    getpvp_heroes() {
+        return this.get<PvPHeroes>('/v2/account/pvp/heroes')
     }
-    public async raids(): Promise<AccountTypes.Raids> {
-        return (await this.api.get<AccountTypes.Raids>('/v2/account/raids')).data
+    getraids() {
+        return this.get<Raids>('/v2/account/raids')
     }
-    public async recipes(): Promise<AccountTypes.Recipes> {
-        return (await this.api.get<AccountTypes.Recipes>('/v2/account/recipes')).data
+    getrecipes() {
+        return this.get<Recipes>('/v2/account/recipes')
     }
-    public async skins(): Promise<AccountTypes.Skins> {
-        return (await this.api.get<AccountTypes.Skins>('/v2/account/skins')).data
+    getskins() {
+        return this.get<Skins>('/v2/account/skins')
     }
-    public async titles(): Promise<AccountTypes.Titles> {
-        return (await this.api.get<AccountTypes.Titles>('/v2/account/titles')).data
+    gettitles() {
+        return this.get<Titles>('/v2/account/titles')
     }
-    public async wallet(): Promise<AccountTypes.Wallet> {
-        return (await this.api.get<AccountTypes.Wallet>('/v2/account/wallet')).data
+    getwallet() {
+        return this.get<Wallet>('/v2/account/wallet')
     }
-    public async worldBosses(): Promise<AccountTypes.WorldBosses> {
-        return (await this.api.get<AccountTypes.WorldBosses>('/v2/account/worldbosses')).data
+    getworldBosses() {
+        return this.get<WorldBosses>('/v2/account/worldbosses')
     }
 }

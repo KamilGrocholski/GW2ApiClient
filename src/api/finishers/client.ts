@@ -1,20 +1,20 @@
-import { FinishersTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { Finisher, FinisherId } from "./types";
 
 export class FinishersClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getFinishersAllIds(): Promise<FinishersTypes.FinishersIds> {
-        return (await this.api.get<FinishersTypes.FinishersIds>('/v2/finishers')).data
+    getFinishersAllIds() {
+        return this.get<FinisherId[]>('/v2/finishers')
     }
 
-    public async getFinisherById(id: number): Promise<FinishersTypes.Finisher> {
-        return (await this.api.get<FinishersTypes.Finisher>(`/v2/finishers/${ id }`)).data
+    getFinisherById(id: FinisherId) {
+        return this.get<Finisher>(`/v2/finishers/${ id }`)
     }
 
-    public async getFinishersByIds(ids: number[]): Promise<FinishersTypes.Finishers> {
-        return (await this.api.get<FinishersTypes.Finishers>(`/v2/finishers?ids=${ ids.join(',') }`)).data
+    getFinishersByIds(ids: FinisherId[]) {
+        return this.get<Finisher[]>(`/v2/finishers?ids=${ ids.join(',') }`)
     }
 }

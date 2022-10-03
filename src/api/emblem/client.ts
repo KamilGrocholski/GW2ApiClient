@@ -1,20 +1,20 @@
-import { EmblemTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { BackgroundId, Background } from "./types";
 
 export class EmblemClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getBackgroundsAllIds(): Promise<EmblemTypes.BackgroundsIds> {
-        return (await this.api.get<EmblemTypes.BackgroundsIds>('/v2/emblem/backgrounds')).data
+    getBackgroundsAllIds() {
+        return this.get<BackgroundId[]>('/v2/emblem/backgrounds')
     }
 
-    public async getBackgroundById(id: number): Promise<EmblemTypes.Background> {
-        return (await this.api.get<EmblemTypes.Background>(`/v2/emblem/backgrounds/${ id }`)).data
+    getBackgroundById(id: BackgroundId) {
+        return this.get<Background>(`/v2/emblem/backgrounds/${ id }`)
     }
 
-    public async getBackgroundsByIds(ids: number[]): Promise<EmblemTypes.Backgrounds> {
-        return (await this.api.get<EmblemTypes.Backgrounds>(`v2/emblem/backgrounds?ids=${ ids.join(',') }`)).data
+    getBackgroundsByIds(ids: BackgroundId[]) {
+        return this.get<Background[]>(`v2/emblem/backgrounds?ids=${ ids.join(',') }`)
     }
 }

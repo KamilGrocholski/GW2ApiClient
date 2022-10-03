@@ -1,5 +1,4 @@
 export type NoveltyId = number
-export type NoveltiesIds = NoveltyId[]
 
 export type Novelty = {
     id: NoveltyId
@@ -9,5 +8,3 @@ export type Novelty = {
     slot: 'Chair' | 'Music' | 'HeldItem' | 'Miscellaneous' | 'Tonic'
     unlock_item?: number[] | null
 }
-
-export type Novelties = Novelty[]

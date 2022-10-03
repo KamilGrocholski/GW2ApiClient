@@ -1,9 +1,7 @@
-export type EmotesIds = string[]
+export type EmoteId = string
 
 export type Emote = {
-    id: string
+    id: EmoteId
     commands: string[]
     unlock_items: number[]
 }
-
-export type Emotes = Emote[]

@@ -1,7 +1,7 @@
-export type ColorsIds = number[]
+export type ColorId = number
 
 export type Color = {
-    id: number
+    id: ColorId
     name: string
     base_rgb: number[] | null
     cloth: {
@@ -56,5 +56,3 @@ export type Color = {
         | 'Exclusive'
     )[]
 }
-
-export type Colors = Color[]

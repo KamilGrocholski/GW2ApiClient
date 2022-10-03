@@ -1,16 +1,16 @@
-import { DungeonsTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { DungeonId, Dungeon } from "./types";
 
 export class DungeonsClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getDungeonsAllIds(): Promise<DungeonsTypes.DungeonsIds> {
-        return (await this.api.get<DungeonsTypes.DungeonsIds>('/v2/dungeons')).data
+    getDungeonsAllIds() {
+        return this.get<DungeonId[]>('/v2/dungeons')
     }
 
-    public async getDungeonById(id: string): Promise<DungeonsTypes.Dungeon> {
-        return (await this.api.get<DungeonsTypes.Dungeon>(`/v2/dungeons/${ id }`)).data
+    getDungeonById(id: DungeonId) {
+        return this.get<Dungeon>(`/v2/dungeons/${ id }`)
     }
 }

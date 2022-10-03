@@ -1,20 +1,20 @@
-import { EmotesTypes } from ".";
 import { BaseApi, ClientOptions } from "../baseAPI";
+import { EmoteId, Emote } from "./types";
 
 export class EmotesClient extends BaseApi {
     constructor(clientOptions?: ClientOptions) {
         super(clientOptions)
     }
 
-    public async getEmotesAllIds(): Promise<EmotesTypes.EmotesIds> {
-        return (await this.api.get<EmotesTypes.EmotesIds>('/v2/emotes')).data
+    getEmotesAllIds() {
+        return this.get<EmoteId[]>('/v2/emotes')
     }
 
-    public async getEmoteById(id: string): Promise<EmotesTypes.Emote> {
-        return (await this.api.get<EmotesTypes.Emote>(`/v2/emotes/${ id }`)).data
+    getEmoteById(id: EmoteId) {
+        return this.get<Emote>(`/v2/emotes/${ id }`)
     }
 
-    public async getEmotesByIds(ids: string[]): Promise<EmotesTypes.Emotes> {
-        return (await this.api.get<EmotesTypes.Emotes>(`/v2/emotes?ids=${ ids.join(',') }`)).data
+    getEmotesByIds(ids: EmoteId[]) {
+        return this.get<Emote[]>(`/v2/emotes?ids=${ ids.join(',') }`)
     }
 }
