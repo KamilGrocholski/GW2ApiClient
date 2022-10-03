@@ -7,24 +7,22 @@
 </p>
 
 <p align="center">
-  Get started with the <b color="lightblue">Guild Wars 2 Api Client</b> by running <code>npm i guildwars2-api-client</code>
+  Get started with the <b color="blue">Guild Wars 2 Api Client</b> by running <code>npm i guildwars2-api-client</code>
 </p>
 
 <p align="center">
-    ```ts
+
     import { GW2ApiClient } from 'guildwars2-api-client';
     const client = new GW2ApiClient({
         apiKey: process.env.GW2_TOKEN,
         acceptedStatusCodes: 'ONLY_200'
     });
-    ```
-    ```ts
+
     const App = async () => {
         const dailyAchievements = await client.achievements.getDaily();
         console.log(dailyAchievements);
     };
-    ```
-    ```ts
+
     App();
-    ```
+
 </p>
