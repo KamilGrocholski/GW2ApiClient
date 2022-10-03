@@ -100,7 +100,7 @@ export type Daily = {
     pvp: DailySubObject[]
     wvw: DailySubObject[]
     fractals: DailySubObject[]
-    special: DailySubObject[] 
+    special: DailySubObject[] | null
 }
 
 
