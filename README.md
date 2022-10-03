@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-  Get started with the <b color="blue">Guild Wars 2 Api Client</b> by running <code>npm i guildwars2-api-client</code>
+  Get started with the <b color="#12322">Guild Wars 2 Api Client</b> by running <code>npm i guildwars2-api-client</code>
 </p>
 
-    ```ts
+    ```javascript
     import { GW2ApiClient } from 'guildwars2-api-client';
 
     const client = new GW2ApiClient({
