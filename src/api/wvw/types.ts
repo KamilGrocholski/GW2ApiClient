@@ -1,4 +1,4 @@
-import { Coord, LabelCoord } from "../continents/types"
+import { LabelCoord } from "../continents/types"
 import { GuildId } from "../guilds/types"
 import { WorldId } from "../worlds/types"
 
@@ -29,6 +29,7 @@ export type WvWMatch = {
     kills: Kills
     victory_points: VictoryPoints
     maps: Map[]
+    skirmishes: Skirmish[]
 }
 
 export type WvWMatchOverview = {
@@ -119,6 +120,14 @@ type Worlds = Record<WvWColor, WorldId>
 type Deaths = Record<WvWColor, number>
 type Kills = Record<WvWColor, number>
 type VictoryPoints = Record<WvWColor, number>
+type Skirmish = {
+    id: number
+    scores: Scores
+    map_scores: {
+        type: MapIdentifier
+        scores: Scores
+    }[]
+}
 
 type MapIdentifier = 'RedHome' | 'GreenHome' | 'BlueHome' | 'Center'
 
@@ -148,13 +157,6 @@ type Map = {
         type: string
         owner: WvWOwner
     }[] | null
-    skirmishes: {
-        id: number
-        scores: Scores
-        map_scores: {
-            type: MapIdentifier
-            scores: Scores
-        }[]
-    }[]
+    skirmishes: Skirmish[]
     victory_points: Scores
 }
