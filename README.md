@@ -25,3 +25,33 @@ const displayData = async () => {
 
 displayData();
 ```
+
+<h2>
+  Logger examples
+</h2>
+
+<p>
+  <img src="https://i.imgur.com/MNChC1j.png" />
+</p>
+<p>
+  <img src="https://i.imgur.com/vYieqee.png" />
+</p>
+<p>
+  <img src="https://i.imgur.com/3mBeNW4.png" />
+</p>
+
+<h2>
+  Known status codes
+</h2>
+
+<h3>Success</h3>
+<li><b>200</b> Status - all of the requested data has been returned</li>
+<li><b>206</b> Status - at least one, but not all of the provided IDs are valid
+</li>
+
+<h3>Error</h3>
+<li><b>401</b> Error - attempting to access an authenticated endpoint without a valid API key, or with a valid API key without the necessary permissions</li>
+<li><b>403</b> Error - attempting to access an authenticated endpoint without a valid API key, or with a valid API key without the necessary permissions
+</li>
+<li><b>404</b> Error - the endpoint does not exist, or all of the provided IDs are invalid</li>
+<li><b>503</b> Error - the endpoint is disabled</li>

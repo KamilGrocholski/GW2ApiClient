@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosError, AxiosResponse } from "axios"
-import { handleResponse, handleResponseError, MessageController } from "./actionHandlers"
+import { COLORS, handleResponse, handleResponseError, MessageController } from "./actionHandlers"
 
 export interface ClientOptions {
     apiKey?: string,
@@ -24,7 +24,7 @@ export class BaseApi {
 
         this.api.interceptors.request.use(
             (config: AxiosRequestConfig) => {
-                MessageController('CYAN', `Request has been sent with the schema version: ${ schemaVersion }`)
+                MessageController('CYAN', `>>> The request ${COLORS['BLUE'](config.baseURL ? config.baseURL + config.url : config.url) } is to be sent with the schema version: ${ schemaVersion }`)
                 return config
             },
             (error: AxiosError) => {

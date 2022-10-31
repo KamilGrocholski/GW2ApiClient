@@ -1,0 +1,9 @@
+SUCCESS
+    200 Status - all of the requested data has been returned
+    206 Status - at least one, but not all of the provided IDs are valid
+
+ERROR
+    401 Error - attempting to access an authenticated endpoint without a valid API key, or with a valid API key without the necessary permissions
+    403 Error - attempting to access an authenticated endpoint without a valid API key, or with a valid API key without the necessary permissions
+    404 Error - the endpoint does not exist, or all of the provided IDs are invalid
+    503 Error - the endpoint is disabled
